@@ -4,19 +4,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
-import uk.gov.hmcts.reform.demo.controllers.RootController;
+import uk.gov.hmcts.reform.demo.controllers.WelcomeController;
 
 public class GetWelcomeTest {
 
-    private RootController rootController = new RootController();
+    private WelcomeController welcomeController = new WelcomeController();
 
     @Test
     public void should_get_expected_200_response() {
 
         final String expected = "Welcome to Home Office API";
-        assertThat(rootController.welcome()).isNotNull();
-        assertThat(rootController.welcome().getStatusCodeValue()).isEqualTo(HttpStatus.OK.value());
-        assertThat(rootController.welcome().getBody())
+        assertThat(welcomeController.welcome()).isNotNull();
+        assertThat(welcomeController.welcome().getStatusCodeValue()).isEqualTo(HttpStatus.OK.value());
+        assertThat(welcomeController.welcome().getBody())
             .isEqualTo(expected);
     }
 
