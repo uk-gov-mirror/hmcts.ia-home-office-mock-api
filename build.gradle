@@ -19,8 +19,8 @@ group = 'uk.gov.hmcts.reform'
 version = '0.0.1'
 
 allprojects {
-  sourceCompatibility = '8'
-  targetCompatibility = '8'
+  sourceCompatibility = '11'
+  targetCompatibility = '11'
 }
 
 sourceSets {
@@ -195,7 +195,7 @@ dependencyManagement {
     dependencySet(group: 'com.google.guava', version: '29.0-jre') {
       entry 'guava'
     }
-    dependencySet(group: 'org.apache.tomcat.embed', version: '9.0.36') {
+    dependencySet(group: 'org.apache.tomcat.embed', version: '9.0.37') {
       entry 'tomcat-embed-core'
       entry 'tomcat-embed-el'
       entry 'tomcat-embed-websocket'
@@ -244,7 +244,7 @@ dependencies {
   implementation group: 'uk.gov.hmcts.reform', name: 'logging-appinsights', version: versions.reformLogging
   implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.2.RELEASE'
   implementation group: 'uk.gov.hmcts.reform', name: 'properties-volume-spring-boot-starter', version: '0.0.4'
-
+  compile group: 'com.sun.xml.bind', name: 'jaxb-osgi', version: '2.3.3'
   // CVE-2020-9488
   implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.13.2'
   implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.2'
