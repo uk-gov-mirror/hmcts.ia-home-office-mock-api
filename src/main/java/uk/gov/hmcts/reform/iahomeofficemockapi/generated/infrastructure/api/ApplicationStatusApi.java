@@ -62,7 +62,150 @@ public interface ApplicationStatusApi {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
                     log.info("/applicationStatus/getBySearchParameters request->return mock response");
-                    String exampleString = "{ \"messageHeader\" : { \"eventDateTime\" : \"2017-07-21T17:32:28Z\", \"correlationId\" : \"ABC2344BCED2234EA\", \"consumer\" : { \"code\" : \"HMCTS\", \"description\" : \"HM Courts and Tribunal Service\" } }, \"messageType\" : \"RESPONSE_RIGHT_OF_APPEAL_DETAILS\", \"status\" : [ { \"applicationStatus\" : { \"applicationType\" : { \"code\" : \"ASYLUM\", \"description\" : \"Asylum and Protection\" }, \"metadata\" : [ { \"valueBoolean\" : true, \"code\" : \"APPEALABLE or DISPATCH_DATE\", \"valueString\" : \"Some extra decision data\", \"valueDateTime\" : \"2017-07-21T17:32:28Z\" }, { \"valueBoolean\" : true, \"code\" : \"APPEALABLE or DISPATCH_DATE\", \"valueString\" : \"Some extra decision data\", \"valueDateTime\" : \"2017-07-21T17:32:28Z\" } ], \"rejectionReasons\" : [ { \"reason\" : \"Application not completed properly\" }, { \"reason\" : \"Application not completed properly\" } ], \"decisionCommunication\" : { \"sentDate\" : \"2017-07-21T17:32:28Z\", \"dispatchDate\" : \"2017-07-21T17:32:28Z\", \"description\" : \"E-mail\", \"type\" : \"EMAIL\" }, \"claimReasonType\" : { \"code\" : \"HUMANRIGHTS\", \"description\" : \"Human Rights\" }, \"documentReference\" : \"1234-1234-5678-5678/00\", \"roleSubType\" : { \"code\" : \"SPOUSE. Could be MAIN if the role type is APPLICANT\", \"description\" : \"Spouse\" }, \"decisionType\" : { \"code\" : \"REJECTION\", \"description\" : \"Rejected\" }, \"roleType\" : { \"code\" : \"DEPENDANT\", \"description\" : \"Dependant\" }, \"decisionDate\" : \"2017-07-21T17:32:28Z\" }, \"person\" : { \"gender\" : { \"code\" : \"M (denoting male)\", \"description\" : \"Male\" }, \"nationality\" : { \"code\" : \"CAN (denoting Canada)\", \"description\" : \"Canada\" }, \"dayOfBirth\" : 21, \"givenName\" : \"Capability\", \"familyName\" : \"Smith\", \"fullName\" : \"Capability Smith\", \"monthOfBirth\" : 0, \"yearOfBirth\" : 1970 } }, { \"applicationStatus\" : { \"applicationType\" : { \"code\" : \"ASYLUM\", \"description\" : \"Asylum and Protection\" }, \"metadata\" : [ { \"valueBoolean\" : true, \"code\" : \"APPEALABLE or DISPATCH_DATE\", \"valueString\" : \"Some extra decision data\", \"valueDateTime\" : \"2017-07-21T17:32:28Z\" }, { \"valueBoolean\" : true, \"code\" : \"APPEALABLE or DISPATCH_DATE\", \"valueString\" : \"Some extra decision data\", \"valueDateTime\" : \"2017-07-21T17:32:28Z\" } ], \"rejectionReasons\" : [ { \"reason\" : \"Application not completed properly\" }, { \"reason\" : \"Application not completed properly\" } ], \"decisionCommunication\" : { \"sentDate\" : \"2017-07-21T17:32:28Z\", \"dispatchDate\" : \"2017-07-21T17:32:28Z\", \"description\" : \"E-mail\", \"type\" : \"EMAIL\" }, \"claimReasonType\" : { \"code\" : \"HUMANRIGHTS\", \"description\" : \"Human Rights\" }, \"documentReference\" : \"1234-1234-5678-5678/00\", \"roleSubType\" : { \"code\" : \"SPOUSE. Could be MAIN if the role type is APPLICANT\", \"description\" : \"Spouse\" }, \"decisionType\" : { \"code\" : \"REJECTION\", \"description\" : \"Rejected\" }, \"roleType\" : { \"code\" : \"DEPENDANT\", \"description\" : \"Dependant\" }, \"decisionDate\" : \"2017-07-21T17:32:28Z\" }, \"person\" : { \"gender\" : { \"code\" : \"M (denoting male)\", \"description\" : \"Male\" }, \"nationality\" : { \"code\" : \"CAN (denoting Canada)\", \"description\" : \"Canada\" }, \"dayOfBirth\" : 21, \"givenName\" : \"Capability\", \"familyName\" : \"Smith\", \"fullName\" : \"Capability Smith\", \"monthOfBirth\" : 0, \"yearOfBirth\" : 1970 } } ] }";
+                    String exampleString = "{\n" +
+                        "  \"messageHeader\": {\n" +
+                        "    \"consumer\": {\n" +
+                        "      \"code\": \"HMCTS\",\n" +
+                        "      \"description\": \"HM Courts and Tribunal Service\"\n" +
+                        "    },\n" +
+                        "    \"correlationId\": \"ABC2344BCED2234EA\",\n" +
+                        "    \"eventDateTime\": \"2020-07-21T17:32:28Z\"\n" +
+                        "  },\n" +
+                        "  \"messageType\": \"RESPONSE_RIGHT_OF_APPEAL_DETAILS\",\n" +
+                        "  \"status\": [\n" +
+                        "    {\n" +
+                        "      \"applicationStatus\": {\n" +
+                        "        \"applicationType\": {\n" +
+                        "          \"code\": \"ASYLUM\",\n" +
+                        "          \"description\": \"Asylum and Protection\"\n" +
+                        "        },\n" +
+                        "        \"claimReasonType\": {\n" +
+                        "          \"code\": \"HUMANRIGHTS\",\n" +
+                        "          \"description\": \"Human Rights\"\n" +
+                        "        },\n" +
+                        "        \"decisionCommunication\": {\n" +
+                        "          \"description\": \"E-mail\",\n" +
+                        "          \"dispatchDate\": \"2020-07-21T17:32:28Z\",\n" +
+                        "          \"sentDate\": \"2020-07-21T17:32:28Z\",\n" +
+                        "          \"type\": \"EMAIL\"\n" +
+                        "        },\n" +
+                        "        \"decisionDate\": \"2020-07-21T17:32:28Z\",\n" +
+                        "        \"decisionType\": {\n" +
+                        "          \"code\": \"REJECTION\",\n" +
+                        "          \"description\": \"Rejected\"\n" +
+                        "        },\n" +
+                        "        \"documentReference\": \"1234-1234-5678-5678/00\",\n" +
+                        "        \"metadata\": [\n" +
+                        "          {\n" +
+                        "            \"code\": \"APPEALABLE or DISPATCH_DATE\",\n" +
+                        "            \"valueBoolean\": true,\n" +
+                        "            \"valueDateTime\": \"2020-07-21T17:32:28Z\",\n" +
+                        "            \"valueString\": \"Some extra decision data\"\n" +
+                        "          }\n" +
+                        "        ],\n" +
+                        "        \"rejectionReasons\": [\n" +
+                        "          {\n" +
+                        "            \"reason\": \"Application not completed properly\"\n" +
+                        "          }\n" +
+                        "        ],\n" +
+                        "        \"roleSubType\": {\n" +
+                        "          \"code\": \"MAIN\",\n" +
+                        "          \"description\": \"Main\"\n" +
+                        "        },\n" +
+                        "        \"roleType\": {\n" +
+                        "          \"code\": \"MAIN\",\n" +
+                        "          \"description\": \"Main\"\n" +
+                        "        }\n" +
+                        "      },\n" +
+                        "      \"person\": {\n" +
+                        "        \"dayOfBirth\": 29,\n" +
+                        "        \"familyName\": \"Smith\",\n" +
+                        "        \"fullName\": \"John Smith\",\n" +
+                        "        \"gender\": {\n" +
+                        "          \"code\": \"M (denoting male)\",\n" +
+                        "          \"description\": \"Male\"\n" +
+                        "        },\n" +
+                        "        \"givenName\": \"John\",\n" +
+                        "        \"monthOfBirth\": 2,\n" +
+                        "        \"nationality\": {\n" +
+                        "          \"code\": \"CAN\",\n" +
+                        "          \"description\": \"Canada\"\n" +
+                        "        },\n" +
+                        "        \"yearOfBirth\": 1968\n" +
+                        "      }\n" +
+                        "    },\n" +
+                        "    {\n" +
+                        "      \"applicationStatus\": {\n" +
+                        "        \"applicationType\": {\n" +
+                        "          \"code\": \"ASYLUM\",\n" +
+                        "          \"description\": \"Asylum and Protection\"\n" +
+                        "        },\n" +
+                        "        \"claimReasonType\": {\n" +
+                        "          \"code\": \"HUMANRIGHTS\",\n" +
+                        "          \"description\": \"Human Rights\"\n" +
+                        "        },\n" +
+                        "        \"decisionCommunication\": {\n" +
+                        "          \"description\": \"E-mail\",\n" +
+                        "          \"dispatchDate\": \"2020-07-21T17:32:28Z\",\n" +
+                        "          \"sentDate\": \"2020-07-21T17:32:28Z\",\n" +
+                        "          \"type\": \"EMAIL\"\n" +
+                        "        },\n" +
+                        "        \"decisionDate\": \"2020-07-21T17:32:28Z\",\n" +
+                        "        \"decisionType\": {\n" +
+                        "          \"code\": \"REJECTION\",\n" +
+                        "          \"description\": \"Rejected\"\n" +
+                        "        },\n" +
+                        "        \"documentReference\": \"1234-1234-5678-5678/00\",\n" +
+                        "        \"metadata\": [\n" +
+                        "          {\n" +
+                        "            \"code\": \"DISPATCH_DATE\",\n" +
+                        "            \"valueBoolean\": true,\n" +
+                        "            \"valueDateTime\": \"2020-07-21T17:32:28Z\",\n" +
+                        "            \"valueString\": \"Some extra decision data\"\n" +
+                        "          },\n" +
+                        "          {\n" +
+                        "            \"code\": \"APPEALABLE\",\n" +
+                        "            \"valueBoolean\": true,\n" +
+                        "            \"valueDateTime\": \"2020-07-21T17:32:28Z\",\n" +
+                        "            \"valueString\": \"Some extra decision data\"\n" +
+                        "          }\n" +
+                        "        ],\n" +
+                        "        \"rejectionReasons\": [\n" +
+                        "          {\n" +
+                        "            \"reason\": \"Application not completed properly\"\n" +
+                        "          },\n" +
+                        "          {\n" +
+                        "            \"reason\": \"Application not entered properly\"\n" +
+                        "          }\n" +
+                        "        ],\n" +
+                        "        \"roleSubType\": {\n" +
+                        "          \"code\": \"MAIN\",\n" +
+                        "          \"description\": \"Main\"\n" +
+                        "        },\n" +
+                        "        \"roleType\": {\n" +
+                        "          \"code\": \"APPLICANT\",\n" +
+                        "          \"description\": \"Applicant\"\n" +
+                        "        }\n" +
+                        "      },\n" +
+                        "      \"person\": {\n" +
+                        "        \"dayOfBirth\": 21,\n" +
+                        "        \"familyName\": \"Smith\",\n" +
+                        "        \"fullName\": \"Capability Smith\",\n" +
+                        "        \"gender\": {\n" +
+                        "          \"code\": \"M (denoting male)\",\n" +
+                        "          \"description\": \"Male\"\n" +
+                        "        },\n" +
+                        "        \"givenName\": \"Capability\",\n" +
+                        "        \"monthOfBirth\": 0,\n" +
+                        "        \"nationality\": {\n" +
+                        "          \"code\": \"CAN\",\n" +
+                        "          \"description\": \"Canada\"\n" +
+                        "        },\n" +
+                        "        \"yearOfBirth\": 1970\n" +
+                        "      }\n" +
+                        "    }\n" +
+                        "  ]\n" +
+                        "}";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
