@@ -9,19 +9,20 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 import javax.validation.Valid;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.util.MultiValueMap;
-import org.springframework.util.ResourceUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -150,9 +151,20 @@ public interface ApplicationStatusApi {
                 throw new IOException("Invalid home office reference : " + homeOfficeReference);
         }
 
-        final File hoSearchResponseResourceFile
-            = ResourceUtils.getFile("classpath:" + responseJsonFile);
+        ClassPathResource resource = new ClassPathResource(responseJsonFile, ApplicationStatusApi.class.getClassLoader());
+        InputStream inputStream = resource.getInputStream();
 
-        return new String(Files.readAllBytes(hoSearchResponseResourceFile.toPath()));
+        String data = null;
+        try
+        {
+            byte[] bdata = FileCopyUtils.copyToByteArray(inputStream);
+            data = new String(bdata, StandardCharsets.UTF_8);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return data;
     }
 }
