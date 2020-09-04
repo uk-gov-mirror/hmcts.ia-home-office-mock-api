@@ -130,16 +130,16 @@ public interface ApplicationStatusApi {
 
         switch (homeOfficeReference) {
             case "1212-0099-0061-7075": // Valid UAN reference
-                responseJsonFile = "ho-api_get-by-search-params_200-valid_response-01.json";
+                responseJsonFile = "ho-api_get-by-search-params_200-valid_response_7075.json";
                 break;
             case "1212-0099-0062-8083":
-                responseJsonFile = "ho-api_get-by-serach-params_200_valid-response-02.json";
+                responseJsonFile = "ho-api_get-by-serach-params_200_valid-response-8083.json";
                 break;
             case "020639760": // CID reference response
-                responseJsonFile = "ho-api_get-by-search-params_200-valid_response-01.json";
+                responseJsonFile = "ho-api_get-by-serach-params_200_valid-response-020639760.json";
                 break;
             case "020651434": // CID reference - not Asylum case response
-                responseJsonFile = "ho-api_get-by-search-params_200-valid_response-01.json";
+                responseJsonFile = "ho_api_get-by-search-params_200_no-data-found-uan-ref.json";
                 break;
             case "1212-0099-0029-3029": // Valid UAN - no data found
                 responseJsonFile = "ho_api_get-by-search-params_200_no-data-found-uan-ref.json";
@@ -148,7 +148,8 @@ public interface ApplicationStatusApi {
                 responseJsonFile = "ho_api_get-by-search-params_200_no-data-found-uan-ref.json";
                 break;
             default:
-                throw new IOException("Invalid home office reference : " + homeOfficeReference);
+                responseJsonFile = "ho-api_get-by-serach-params_200_valid-response-default.json";
+                break;
         }
 
         ClassPathResource resource = new ClassPathResource(responseJsonFile, ApplicationStatusApi.class.getClassLoader());
