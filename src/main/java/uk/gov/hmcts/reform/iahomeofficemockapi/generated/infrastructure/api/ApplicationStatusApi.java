@@ -147,6 +147,30 @@ public interface ApplicationStatusApi {
             case "123123123": // Valid CID - no data found
                 responseJsonFile = "ho_api_get-by-search-params_200_no-data-found-uan-ref.json";
                 break;
+                //Added for HMCTS testing only in format X00000000
+            case "X00001010":
+                responseJsonFile = "ho_api_get-by-search-params_200_no-appellant-found-1010.json";
+                break;
+            case "X00001020":
+            case "4545-0000-0100-1006":
+                responseJsonFile = "ho_api_get-by-search-params_200_no-ho-reference-data-found-1020.json";
+                break;
+            case "X00001060":
+            case "1212/009900362015":
+                responseJsonFile = "ho_api_get-by-search-params_200_invalid-format-1060.json";
+                break;
+            case "X00001111": //1 valid application status but no main applicant
+                responseJsonFile = "ho-api_get-by-serach-params_200_valid-no-main-applicant-response-1111.json";
+                break;
+            case "X00002222": //2 valid application status but no main applicant
+                responseJsonFile = "ho-api_get-by-search-params_200-valid-no-main-applicant-response-2222.json";
+                break;
+            case "X00002000":
+            case "X00001070":
+            case "X00002010":
+            case "X00001040":
+                responseJsonFile = "ho_api_get-by-search-params_200_error-response.json";
+                break;
             default:
                 responseJsonFile = "ho-api_get-by-serach-params_200_valid-response-default.json";
                 break;
