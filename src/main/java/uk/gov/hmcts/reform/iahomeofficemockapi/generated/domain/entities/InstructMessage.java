@@ -7,17 +7,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.Challenge;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.ConsumerRef;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.CourtOutcome;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.Hearing;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.MessageHeader;
-import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 
 /**
- * ### Message instructing Home Office about an event, or action to perform.  #### Mandatory items for all messages  messageHeader, messageType, hoReference, and consumerReference  #### Optional items  note  #### Message Types and Mandatory Elements  REQUEST_CHALLENGE_END: endReason, endChallengeDate  REQUEST_EVIDENCE_BUNDLE: challenge, deadlineDate  REQUEST_REVIEW: deadlineDate (a review has its own deadline)  HEARING: hearing  HEARING_BUNDLE_READY: hearing (passing just hmctsHearingRef and hearingType)  COURT_OUTCOME: courtOutcome  PERMISSION_TO_APPEAL: courtType  DEFAULT: No additional mandatory elements; generic item that is not a bundle/review request 
+ * ### Message instructing Home Office about an event, or action to perform.  #### Mandatory items for all messages  messageHeader, messageType, hoReference, and consumerReference  #### Optional items  note  #### Message Types and Mandatory Elements  REQUEST_CHALLENGE_END: endReason, endChallengeDate  REQUEST_EVIDENCE_BUNDLE: challenge, deadlineDate  REQUEST_REVIEW: deadlineDate (a review has its own deadline)  HEARING: hearing  HEARING_BUNDLE_READY: hearing (passing just hmctsHearingRef and hearingType)  COURT_OUTCOME: courtOutcome  PERMISSION_TO_APPEAL: courtType  DEFAULT: No additional mandatory elements; generic item that is not a bundle/review request
  */
 @ApiModel(description = "### Message instructing Home Office about an event, or action to perform.  #### Mandatory items for all messages  messageHeader, messageType, hoReference, and consumerReference  #### Optional items  note  #### Message Types and Mandatory Elements  REQUEST_CHALLENGE_END: endReason, endChallengeDate  REQUEST_EVIDENCE_BUNDLE: challenge, deadlineDate  REQUEST_REVIEW: deadlineDate (a review has its own deadline)  HEARING: hearing  HEARING_BUNDLE_READY: hearing (passing just hmctsHearingRef and hearingType)  COURT_OUTCOME: courtOutcome  PERMISSION_TO_APPEAL: courtType  DEFAULT: No additional mandatory elements; generic item that is not a bundle/review request ")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-01T14:15:45.837+01:00[Europe/London]")
@@ -31,19 +25,19 @@ public class InstructMessage   {
    */
   public enum MessageTypeEnum {
     REQUEST_CHALLENGE_END("REQUEST_CHALLENGE_END"),
-    
+
     REQUEST_EVIDENCE_BUNDLE("REQUEST_EVIDENCE_BUNDLE"),
-    
+
     REQUEST_REVIEW("REQUEST_REVIEW"),
-    
+
     HEARING("HEARING"),
-    
+
     HEARING_BUNDLE_READY("HEARING_BUNDLE_READY"),
-    
+
     COURT_OUTCOME("COURT_OUTCOME"),
-    
+
     PERMISSION_TO_APPEAL("PERMISSION_TO_APPEAL"),
-    
+
     DEFAULT("DEFAULT");
 
     private String value;
@@ -87,13 +81,13 @@ public class InstructMessage   {
    */
   public enum EndReasonEnum {
     STRUCK_OUT("STRUCK_OUT"),
-    
+
     ABANDONED("ABANDONED"),
-    
+
     WITHDRAWN("WITHDRAWN"),
-    
+
     NOT_VALID("NOT_VALID"),
-    
+
     INCORRECT_DETAILS("INCORRECT_DETAILS");
 
     private String value;
@@ -130,18 +124,18 @@ public class InstructMessage   {
   private OffsetDateTime endChallengeDate;
 
   @JsonProperty("deadlineDate")
-  private OffsetDateTime deadlineDate;
+  private String deadlineDate;
 
   /**
    * Court type. *Mandatory if messageType is PERMISSION_TO_APPEAL*
    */
   public enum CourtTypeEnum {
     FIRST_TIER("FIRST_TIER"),
-    
+
     UPPER_TRIBUNAL("UPPER_TRIBUNAL"),
-    
+
     COURT_OF_APPEAL("COURT_OF_APPEAL"),
-    
+
     SUPREME_COURT("SUPREME_COURT");
 
     private String value;
@@ -313,7 +307,7 @@ public class InstructMessage   {
     this.endChallengeDate = endChallengeDate;
   }
 
-  public InstructMessage deadlineDate(OffsetDateTime deadlineDate) {
+  public InstructMessage deadlineDate(String deadlineDate) {
     this.deadlineDate = deadlineDate;
     return this;
   }
@@ -326,11 +320,11 @@ public class InstructMessage   {
 
   @Valid
 
-  public OffsetDateTime getDeadlineDate() {
+  public String getDeadlineDate() {
     return deadlineDate;
   }
 
-  public void setDeadlineDate(OffsetDateTime deadlineDate) {
+  public void setDeadlineDate(String deadlineDate) {
     this.deadlineDate = deadlineDate;
   }
 
@@ -470,7 +464,7 @@ public class InstructMessage   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstructMessage {\n");
-    
+
     sb.append("    messageHeader: ").append(toIndentedString(messageHeader)).append("\n");
     sb.append("    messageType: ").append(toIndentedString(messageType)).append("\n");
     sb.append("    hoReference: ").append(toIndentedString(hoReference)).append("\n");
