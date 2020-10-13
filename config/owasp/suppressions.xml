@@ -111,4 +111,11 @@
         ]]></notes>
     <cve>CVE-2020-24616</cve>
   </suppress>
+  <suppress>
+    <notes><![CDATA[
+        Suppressing all vulnerabilities as it is for Mock generated code
+        file name: Spring-framework jars
+        ]]></notes>
+    <cve>CVE-2020-5421</cve>
+  </suppress>
 </suppressions>
