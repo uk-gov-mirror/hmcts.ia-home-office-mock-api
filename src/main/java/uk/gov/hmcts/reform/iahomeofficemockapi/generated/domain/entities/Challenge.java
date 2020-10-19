@@ -6,11 +6,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.Person;
-import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
@@ -26,13 +23,13 @@ public class Challenge   {
    */
   public enum AppealTypeEnum {
     PROTECTION("PROTECTION"),
-    
+
     REVOCATION_OF_PROTECTION("REVOCATION_OF_PROTECTION"),
-    
+
     DEPRIVATION_OF_CITIZENSHIP("DEPRIVATION_OF_CITIZENSHIP"),
-    
+
     HUMAN_RIGHTS("HUMAN_RIGHTS"),
-    
+
     EEA("EEA");
 
     private String value;
@@ -102,7 +99,7 @@ public class Challenge   {
   private AppealTierTypeEnum appealTierType;
 
   @JsonProperty("challengeSubmissionDate")
-  private OffsetDateTime challengeSubmissionDate;
+  private String challengeSubmissionDate;
 
   @JsonProperty("applicants")
   @Valid
@@ -150,7 +147,7 @@ public class Challenge   {
     this.appealTierType = appealTierType;
   }
 
-  public Challenge challengeSubmissionDate(OffsetDateTime challengeSubmissionDate) {
+  public Challenge challengeSubmissionDate(String challengeSubmissionDate) {
     this.challengeSubmissionDate = challengeSubmissionDate;
     return this;
   }
@@ -164,11 +161,11 @@ public class Challenge   {
 
   @Valid
 
-  public OffsetDateTime getChallengeSubmissionDate() {
+  public String getChallengeSubmissionDate() {
     return challengeSubmissionDate;
   }
 
-  public void setChallengeSubmissionDate(OffsetDateTime challengeSubmissionDate) {
+  public void setChallengeSubmissionDate(String challengeSubmissionDate) {
     this.challengeSubmissionDate = challengeSubmissionDate;
   }
 
@@ -190,7 +187,7 @@ public class Challenge   {
   @NotNull
 
   @Valid
-@Size(min=1) 
+@Size(min=1)
   public List<Person> getApplicants() {
     return applicants;
   }
@@ -224,7 +221,7 @@ public class Challenge   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Challenge {\n");
-    
+
     sb.append("    appealType: ").append(toIndentedString(appealType)).append("\n");
     sb.append("    appealTierType: ").append(toIndentedString(appealTierType)).append("\n");
     sb.append("    challengeSubmissionDate: ").append(toIndentedString(challengeSubmissionDate)).append("\n");

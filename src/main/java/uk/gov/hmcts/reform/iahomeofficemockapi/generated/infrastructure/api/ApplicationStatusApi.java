@@ -48,6 +48,7 @@ public interface ApplicationStatusApi {
     /**
      * POST /applicationStatus/getBySearchParameters : Finds applications by search parameters (initially one).
      *
+     * @param bearerToken (required)
      * @param searchParameters (required)
      * @return OK (status code 200) or Invalid status value (status code 400)
      */
