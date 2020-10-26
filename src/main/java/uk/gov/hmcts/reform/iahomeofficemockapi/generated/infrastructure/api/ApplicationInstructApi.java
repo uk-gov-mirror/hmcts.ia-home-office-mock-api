@@ -9,14 +9,19 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 import javax.validation.Valid;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -59,18 +64,76 @@ public interface ApplicationInstructApi {
         @ApiParam(value = "", required = true) @Valid @RequestHeader(HttpHeaders.AUTHORIZATION) String bearerToken,
         @ApiParam(value = "", required = true) @Valid @RequestBody InstructMessage instructMessage
     ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType : MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    log.info("/applicationInstruct/setInstruct request->return mock response");
-                    String exampleString = "{ \"messageHeader\" : { \"eventDateTime\" : \"2017-07-21T17:32:28Z\", \"correlationId\" : \"ABC2344BCED2234EA\", \"consumer\" : { \"code\" : \"HMCTS\", \"description\" : \"HM Courts and Tribunal Service\" } } }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
+
+        final Optional<NativeWebRequest> nativeWebRequest = getRequest();
+
+        log.info("/applicationStatus/getBySearchParameters nativeWebRequest->return mock response");
+
+        final NativeWebRequest request = nativeWebRequest.get();
+
+        log.info("/applicationStatus/getBySearchParameters nativeWebRequest->return mock response");
+
+        final String documentReference = instructMessage.getHoReference();
+
+        if (documentReference.equalsIgnoreCase("000000400")) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        if (documentReference.equalsIgnoreCase("000000503")) {
+            return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
+        }
+
+        if (documentReference.equalsIgnoreCase("000000500")) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        String responseJson = null;
+        try {
+            responseJson = getResponseJson(documentReference);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String exampleString = "";
+        ApiUtil.setExampleResponse(request, "application/json", responseJson);
+
+        if (documentReference.equalsIgnoreCase("X00001040")) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
         return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
+    @NotNull
+    private String getResponseJson(String homeOfficeReference) throws IOException {
+
+        String responseJsonFile;
+
+        switch (homeOfficeReference) {
+
+            case "X00001040":
+                responseJsonFile = "ho-api_instruct-response_500_error-response.json";
+                break;
+            default:
+                responseJsonFile = "ho-api_instruct-response_200_valid-response-default.json";
+                break;
+        }
+
+        ClassPathResource resource = new ClassPathResource(responseJsonFile, ApplicationStatusApi.class.getClassLoader());
+        InputStream inputStream = resource.getInputStream();
+
+        String data = null;
+        try
+        {
+            byte[] bdata = FileCopyUtils.copyToByteArray(inputStream);
+            data = new String(bdata, StandardCharsets.UTF_8);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
 }
