@@ -118,4 +118,33 @@
         ]]></notes>
     <cve>CVE-2020-5421</cve>
   </suppress>
+  <suppress>
+    <notes><![CDATA[
+        Suppressing all vulnerabilities as it is for Mock generated code
+        file name: groovy
+        ]]></notes>
+    <cve>CVE-2020-17521</cve>
+  </suppress>
+  <suppress>
+    <notes><![CDATA[
+        Suppressing all vulnerabilities as it is for Mock generated code
+        file name: jackson-databind
+        ]]></notes>
+    <cve>CVE-2020-25649</cve>
+  </suppress>
+  <suppress until="2099-06-01">
+    <notes><![CDATA[
+          Only Java >7 version is affected
+          more details https://nvd.nist.gov/vuln/detail/CVE-2020-8908
+    ]]></notes>
+    <cve>CVE-2020-8908</cve>
+  </suppress>
+  <suppress until="2021-06-01">
+    <notes><![CDATA[
+      We do not use authority component to derive host name
+      latest library version has the problem too https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+      more details https://nvd.nist.gov/vuln/detail/CVE-2020-13956
+    ]]></notes>
+    <cve>CVE-2020-13956</cve>
+  </suppress>
 </suppressions>
