@@ -68,6 +68,13 @@
   <suppress>
     <notes><![CDATA[
         Suppressing all vulnerabilities as it is for Mock generated code
+        file name: Spring-framework jars
+        ]]></notes>
+    <cve>CVE-2020-5421</cve>
+  </suppress>
+  <suppress>
+    <notes><![CDATA[
+        Suppressing all vulnerabilities as it is for Mock generated code
         file name: groovy
         ]]></notes>
     <cve>CVE-2020-17521</cve>
@@ -78,21 +85,12 @@
           more details https://nvd.nist.gov/vuln/detail/CVE-2020-8908
     ]]></notes>
     <cve>CVE-2020-8908</cve>
-  </suppress>
-  <suppress until="2021-06-01">
-    <notes><![CDATA[
-      We do not use authority component to derive host name
-      latest library version has the problem too https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
-      more details https://nvd.nist.gov/vuln/detail/CVE-2020-13956
-    ]]></notes>
-    <cve>CVE-2020-13956</cve>
-  </suppress>
-  <suppress until="2030-01-01">
-    <notes><![CDATA[
-               https://nvd.nist.gov/vuln/detail/CVE-2020-29582
-               In JetBrains Kotlin before 1.4.21, a vulnerable Java API was used for temporary file and folder creation. An attacker was able to read data from such files and list directories due to insecure permissions.
-              ]]>
-    </notes>
-    <cve>CVE-2020-29582</cve>
-  </suppress>
+  </suppress><suppress until="2030-01-01">
+  <notes><![CDATA[
+           https://nvd.nist.gov/vuln/detail/CVE-2020-29582
+           In JetBrains Kotlin before 1.4.21, a vulnerable Java API was used for temporary file and folder creation. An attacker was able to read data from such files and list directories due to insecure permissions.
+          ]]>
+  </notes>
+  <cve>CVE-2020-29582</cve>
+</suppress>
 </suppressions>
