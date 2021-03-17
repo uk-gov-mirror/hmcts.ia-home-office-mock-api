@@ -9,14 +9,6 @@
     </notes>
     <cve>CVE-2018-1258</cve>
   </suppress>
-  <suppress until="2030-01-01">
-    <notes><![CDATA[
-           https://nvd.nist.gov/vuln/detail/CVE-2018-1000873
-           Fasterxml Jackson version Before 2.9.8 contains a CWE-20: Improper Input Validation vulnerability in Jackson-Modules-Java8 that can result in Causes a denial-of-service (DoS). This attack appear to be exploitable via The victim deserializes malicious input, specifically very large values in the nanoseconds field of a time value. This vulnerability appears to have been fixed in 2.9.8.
-          ]]>
-    </notes>
-    <cve>CVE-2018-1000873</cve>
-  </suppress>
   <suppress>
     <notes><![CDATA[
    file name: org.apache.sling.javax.activation-0.1.0.jar, not used, false positive
@@ -26,73 +18,5 @@
     <cve>CVE-2016-6798</cve>
   </suppress>
 
-  <suppress>
-    <notes><![CDATA[
-    Suppressing as checkstyle is not run for Mock generated code
-   file name: checkstyle-8.27.jar
-   ]]></notes>
-    <packageUrl regex="true">^pkg:maven/com\.puppycrawl\.tools/checkstyle@.*$</packageUrl>
-    <cve>CVE-2019-10782</cve>
-  </suppress>
-  <suppress>
-    <notes><![CDATA[
-    Suppressing all vulnerabilities as it is for Mock generated code
-   file name: handlebars-4.1.2.jar: handlebars-v4.0.4.js
-   ]]></notes>
-    <packageUrl regex="true">^pkg:javascript/handlebars@.*$</packageUrl>
-    <vulnerabilityName>A prototype pollution vulnerability in handlebars is exploitable if an attacker can control the template</vulnerabilityName>
-    <vulnerabilityName>Disallow calling helperMissing and blockHelperMissing directly</vulnerabilityName>
-    <vulnerabilityName>Prototype pollution</vulnerabilityName>
-  </suppress>
-  <suppress>
-    <notes><![CDATA[
-    Suppressing all vulnerabilities as it is for Mock generated code
-   file name: openapi-generator-4.2.3.jar: jquery-1.8.3.min.js
-   ]]></notes>
-    <packageUrl regex="true">^pkg:javascript/jquery@.*$</packageUrl>
-    <cve>CVE-2012-6708</cve>
-    <cve>CVE-2015-9251</cve>
-    <cve>CVE-2019-11358</cve>
-    <cve>CVE-2020-11022</cve>
-    <cve>CVE-2020-11023</cve>
-    <vulnerabilityName>Regex in its jQuery.htmlPrefilter  sometimes may introduce XSS</vulnerabilityName>
-  </suppress>
-  <suppress>
-    <notes><![CDATA[
-    Suppressing all vulnerabilities as it is for Mock generated code
-   file name: openapi-generator-4.2.3.jar: gradle-wrapper.jar
-   ]]></notes>
-    <sha1>0f6f1fa2b59ae770ca14f975726bed8d6620ed9b</sha1>
-    <cpe>cpe:/a:gradle:gradle</cpe>
-  </suppress>
-  <suppress>
-    <notes><![CDATA[
-        Suppressing all vulnerabilities as it is for Mock generated code
-        file name: Spring-framework jars
-        ]]></notes>
-    <cve>CVE-2020-5421</cve>
-  </suppress>
-  <suppress>
-    <notes><![CDATA[
-        Suppressing all vulnerabilities as it is for Mock generated code
-        file name: groovy
-        ]]></notes>
-    <cve>CVE-2020-17521</cve>
-  </suppress>
-  <suppress until="2021-06-01">
-    <notes><![CDATA[
-      We do not use authority component to derive host name
-      latest library version has the problem too https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
-      more details https://nvd.nist.gov/vuln/detail/CVE-2020-13956
-    ]]></notes>
-    <cve>CVE-2020-13956</cve>
-  </suppress>
-  <suppress until="2030-01-01">
-    <notes><![CDATA[
-           https://nvd.nist.gov/vuln/detail/CVE-2020-29582
-           In JetBrains Kotlin before 1.4.21, a vulnerable Java API was used for temporary file and folder creation. An attacker was able to read data from such files and list directories due to insecure permissions.
-          ]]>
-    </notes>
-    <cve>CVE-2020-29582</cve>
-  </suppress>
+
 </suppressions>
