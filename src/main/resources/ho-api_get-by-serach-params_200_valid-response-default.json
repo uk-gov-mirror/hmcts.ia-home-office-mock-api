@@ -119,8 +119,8 @@
           "description": "Main"
         },
         "roleType": {
-          "code": "APPLICANT",
-          "description": "Applicant"
+          "code": "DEPENDENT",
+          "description": "Dependent"
         }
       },
       "person": {
