@@ -260,7 +260,6 @@ dependencies {
   implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
   implementation group: 'io.rest-assured', name: 'rest-assured', version: '3.3.0'
 
-
   implementation group: 'org.webjars.bower', name: 'jquery', version: '3.6.0'
 
   implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
@@ -272,6 +271,7 @@ dependencies {
     exclude group: 'junit', module: 'junit'
     exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
   }
+  functionalTestImplementation group: 'net.serenity-bdd', name: 'serenity-rest-assured', version: '2.2.12'
 
   integrationTestImplementation sourceSets.main.runtimeClasspath
   integrationTestImplementation sourceSets.test.runtimeClasspath
