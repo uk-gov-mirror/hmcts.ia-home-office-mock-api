@@ -235,12 +235,10 @@ repositories {
 }
 
 def versions = [
-  junit           : '5.6.2',
-  junitPlatform   : '1.6.2',
+  junit           : '5.8.2',
+  junitPlatform   : '1.8.1',
   reformLogging   : '5.1.1',
-  springBoot      : '2.5.0',
-  springfoxSwagger: '3.0.0',
-  openapiGenerator: '4.2.3'
+  springBoot      : '2.7.2'
 ]
 
 ext.libraries = [
@@ -295,7 +293,12 @@ dependencies {
     exclude group: "com.github.tomakehurst", module: "wiremock-standalone"
   }
 
+  testImplementation group: 'org.apiguardian', name: 'apiguardian-api', version: '1.1.2'
+
+  functionalTestImplementation group: 'org.apiguardian', name: 'apiguardian-api', version: '1.1.2'
   functionalTestImplementation group: 'net.serenity-bdd', name: 'serenity-rest-assured', version: '3.2.3'
+
+  smokeTestImplementation group: 'org.apiguardian', name: 'apiguardian-api', version: '1.1.2'
 
   integrationTestImplementation sourceSets.main.runtimeClasspath
   integrationTestImplementation sourceSets.test.runtimeClasspath
