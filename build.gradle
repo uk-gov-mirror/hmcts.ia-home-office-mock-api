@@ -239,7 +239,7 @@ def versions = [
   junitPlatform   : '1.6.2',
   reformLogging   : '5.1.1',
   springBoot      : '2.5.0',
-  springfoxSwagger: '2.9.2',
+  springfoxSwagger: '3.0.0',
   openapiGenerator: '4.2.3'
 ]
 
@@ -260,7 +260,7 @@ dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-json'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: versions.springBoot
 
-  implementation group: 'io.springfox', name: 'springfox-swagger2', version: versions.springfoxSwagger
+  implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.8'
 
   implementation group: 'uk.gov.hmcts.reform', name: 'logging', version: versions.reformLogging
   implementation group: 'uk.gov.hmcts.reform', name: 'logging-appinsights', version: versions.reformLogging
@@ -271,7 +271,6 @@ dependencies {
   implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.13.2'
   implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.2'
 
-  implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: versions.springfoxSwagger
   implementation group: 'javax.xml.bind', name:'jaxb-api', version:'2.2.11'
   implementation group:'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.12.0'
   implementation group: 'org.openapitools', name: 'jackson-databind-nullable', version: '0.1.0'

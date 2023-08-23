@@ -1,19 +1,17 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import org.openapitools.jackson.nullable.JsonNullable;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Metadata item, comprising an item code and one (usually) or more data values that are typed
  */
-@ApiModel(description = "Metadata item, comprising an item code and one (usually) or more data values that are typed")
+@Schema(description = "Metadata item, comprising an item code and one (usually) or more data values that are typed")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-01T14:15:45.837+01:00[Europe/London]")
 
 public class SearchResponseApplicationStatusMetadata   {
@@ -38,7 +36,7 @@ public class SearchResponseApplicationStatusMetadata   {
    * Metadata item code
    * @return code
   */
-  @ApiModelProperty(example = "APPEALABLE or DISPATCH_DATE", required = true, value = "Metadata item code")
+  @Schema(example = "APPEALABLE or DISPATCH_DATE", required = true, description = "Metadata item code")
   @NotNull
 
 
@@ -59,7 +57,7 @@ public class SearchResponseApplicationStatusMetadata   {
    * Boolean metadata value
    * @return valueBoolean
   */
-  @ApiModelProperty(example = "true", value = "Boolean metadata value")
+  @Schema(example = "true", description = "Boolean metadata value")
 
 
   public Boolean getValueBoolean() {
@@ -79,7 +77,7 @@ public class SearchResponseApplicationStatusMetadata   {
    * Date (and time) metadata value, in the standard format yyyy-mm-dd (with the HH:mm:ss if the time is available - this won't be displayed if it isn't). This is assumed to be in UTC
    * @return valueDateTime
   */
-  @ApiModelProperty(example = "2017-07-21T17:32:28Z", value = "Date (and time) metadata value, in the standard format yyyy-mm-dd (with the HH:mm:ss if the time is available - this won't be displayed if it isn't). This is assumed to be in UTC")
+  @Schema(example = "2017-07-21T17:32:28Z", description = "Date (and time) metadata value, in the standard format yyyy-mm-dd (with the HH:mm:ss if the time is available - this won't be displayed if it isn't). This is assumed to be in UTC")
 
   @Valid
 
@@ -100,7 +98,7 @@ public class SearchResponseApplicationStatusMetadata   {
    * String metadata value
    * @return valueString
   */
-  @ApiModelProperty(example = "Some extra decision data", value = "String metadata value")
+  @Schema(example = "Some extra decision data", description = "String metadata value")
 
 
   public String getValueString() {
@@ -136,7 +134,7 @@ public class SearchResponseApplicationStatusMetadata   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResponseApplicationStatusMetadata {\n");
-    
+
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    valueBoolean: ").append(toIndentedString(valueBoolean)).append("\n");
     sb.append("    valueDateTime: ").append(toIndentedString(valueDateTime)).append("\n");

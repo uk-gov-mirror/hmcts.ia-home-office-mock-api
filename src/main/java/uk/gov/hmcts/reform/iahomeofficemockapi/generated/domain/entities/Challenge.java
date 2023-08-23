@@ -1,20 +1,21 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.util.Objects;
 
 /**
  * Details of a challenge (initially, all appeal related).
  */
-@ApiModel(description = "Details of a challenge (initially, all appeal related).")
+@Schema(description = "Details of a challenge (initially, all appeal related).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-01T14:15:45.837+01:00[Europe/London]")
 
 public class Challenge   {
@@ -114,7 +115,7 @@ public class Challenge   {
    * The type of appeal
    * @return appealType
   */
-  @ApiModelProperty(required = true, value = "The type of appeal")
+  @Schema(required = true, description = "The type of appeal")
   @NotNull
 
 
@@ -135,7 +136,7 @@ public class Challenge   {
    * The type of appeal tier
    * @return appealTierType
   */
-  @ApiModelProperty(required = true, value = "The type of appeal tier")
+  @Schema(required = true, description = "The type of appeal tier")
   @NotNull
 
 
@@ -156,7 +157,7 @@ public class Challenge   {
    * Date (and time, if available) of challenge submission, in the standard format yyyy-mm-dd (with HH:mm:ss if the time is available, otherwise not). Date/time is assumed to be in UTC
    * @return challengeSubmissionDate
   */
-  @ApiModelProperty(example = "2017-07-21T17:32:28Z", required = true, value = "Date (and time, if available) of challenge submission, in the standard format yyyy-mm-dd (with HH:mm:ss if the time is available, otherwise not). Date/time is assumed to be in UTC")
+  @Schema(example = "2017-07-21T17:32:28Z", required = true, description = "Date (and time, if available) of challenge submission, in the standard format yyyy-mm-dd (with HH:mm:ss if the time is available, otherwise not). Date/time is assumed to be in UTC")
   @NotNull
 
   @Valid
@@ -183,7 +184,7 @@ public class Challenge   {
    * List of applicants (will initially be just one)
    * @return applicants
   */
-  @ApiModelProperty(required = true, value = "List of applicants (will initially be just one)")
+  @Schema(required = true, description = "List of applicants (will initially be just one)")
   @NotNull
 
   @Valid

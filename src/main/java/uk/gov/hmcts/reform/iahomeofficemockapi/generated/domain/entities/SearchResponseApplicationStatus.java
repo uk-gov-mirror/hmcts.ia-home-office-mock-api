@@ -1,29 +1,18 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.validation.Valid;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseApplicationStatusApplicationType;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseApplicationStatusClaimReasonType;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseApplicationStatusDecisionCommunication;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseApplicationStatusDecisionType;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseApplicationStatusMetadata;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseApplicationStatusRejectionReasons;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseApplicationStatusRoleSubType;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseApplicationStatusRoleType;
-import org.openapitools.jackson.nullable.JsonNullable;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.util.Objects;
 
 /**
  * Current status of the individual&#39;s application
  */
-@ApiModel(description = "Current status of the individual's application")
+@Schema(description = "Current status of the individual's application")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-01T14:15:45.837+01:00[Europe/London]")
 
 public class SearchResponseApplicationStatus   {
@@ -68,7 +57,7 @@ public class SearchResponseApplicationStatus   {
    * The UAN or Case ID (CID) passed to the Home Office in the original request. (Allows for the UAN/nn value - nn denoting an individual within a group UAN - to be returned to HMCTS, should this value be available.)
    * @return documentReference
   */
-  @ApiModelProperty(example = "1234-1234-5678-5678/00", value = "The UAN or Case ID (CID) passed to the Home Office in the original request. (Allows for the UAN/nn value - nn denoting an individual within a group UAN - to be returned to HMCTS, should this value be available.)")
+  @Schema(example = "1234-1234-5678-5678/00", description = "The UAN or Case ID (CID) passed to the Home Office in the original request. (Allows for the UAN/nn value - nn denoting an individual within a group UAN - to be returned to HMCTS, should this value be available.)")
 
 
   public String getDocumentReference() {
@@ -88,7 +77,7 @@ public class SearchResponseApplicationStatus   {
    * Get roleType
    * @return roleType
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -109,7 +98,7 @@ public class SearchResponseApplicationStatus   {
    * Get roleSubType
    * @return roleSubType
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -130,7 +119,7 @@ public class SearchResponseApplicationStatus   {
    * Get applicationType
    * @return applicationType
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -151,7 +140,7 @@ public class SearchResponseApplicationStatus   {
    * Get claimReasonType
    * @return claimReasonType
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -172,7 +161,7 @@ public class SearchResponseApplicationStatus   {
    * Get decisionType
    * @return decisionType
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -193,7 +182,7 @@ public class SearchResponseApplicationStatus   {
    * Date (and time, if available) of decision made on the application, in the standard format yyyy-mm-dd (with the HH:mm:ss if the time is available - this won't be displayed if it isn't). All dates/times are assumed to be in UTC
    * @return decisionDate
   */
-  @ApiModelProperty(example = "2017-07-21T17:32:28Z", value = "Date (and time, if available) of decision made on the application, in the standard format yyyy-mm-dd (with the HH:mm:ss if the time is available - this won't be displayed if it isn't). All dates/times are assumed to be in UTC")
+  @Schema(example = "2017-07-21T17:32:28Z", description = "Date (and time, if available) of decision made on the application, in the standard format yyyy-mm-dd (with the HH:mm:ss if the time is available - this won't be displayed if it isn't). All dates/times are assumed to be in UTC")
 
   @Valid
 
@@ -214,7 +203,7 @@ public class SearchResponseApplicationStatus   {
    * Get decisionCommunication
    * @return decisionCommunication
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -243,7 +232,7 @@ public class SearchResponseApplicationStatus   {
    * Rejection reasons
    * @return rejectionReasons
   */
-  @ApiModelProperty(value = "Rejection reasons")
+  @Schema(description= "Rejection reasons")
 
   @Valid
 
@@ -269,10 +258,10 @@ public class SearchResponseApplicationStatus   {
   }
 
   /**
-   * Additional attributes (metadata) of the application 
+   * Additional attributes (metadata) of the application
    * @return metadata
   */
-  @ApiModelProperty(value = "Additional attributes (metadata) of the application ")
+  @Schema(description= "Additional attributes (metadata) of the application ")
 
   @Valid
 
@@ -315,7 +304,7 @@ public class SearchResponseApplicationStatus   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResponseApplicationStatus {\n");
-    
+
     sb.append("    documentReference: ").append(toIndentedString(documentReference)).append("\n");
     sb.append("    roleType: ").append(toIndentedString(roleType)).append("\n");
     sb.append("    roleSubType: ").append(toIndentedString(roleSubType)).append("\n");

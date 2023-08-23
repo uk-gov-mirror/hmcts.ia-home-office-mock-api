@@ -1,14 +1,11 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import java.util.Objects;
 
 /**
  * ErrorResponse1200
@@ -67,7 +64,7 @@ public class ErrorResponse1200   {
    * Get success
    * @return success
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
 
   public Boolean getSuccess() {
@@ -87,7 +84,7 @@ public class ErrorResponse1200   {
    * Error message text
    * @return messageText
   */
-  @ApiModelProperty(example = "TBD", value = "Error message text")
+  @Schema(example = "TBD", description = "Error message text")
 
 
   public String getMessageText() {
@@ -107,7 +104,7 @@ public class ErrorResponse1200   {
    * Error code (non-HTTP)
    * @return errorCode
   */
-  @ApiModelProperty(value = "Error code (non-HTTP)")
+  @Schema(description = "Error code (non-HTTP)")
 
 
   public ErrorCodeEnum getErrorCode() {
@@ -142,7 +139,7 @@ public class ErrorResponse1200   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ErrorResponse1200 {\n");
-    
+
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    messageText: ").append(toIndentedString(messageText)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");

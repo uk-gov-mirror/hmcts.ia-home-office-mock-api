@@ -1,18 +1,14 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import java.util.Objects;
 
 /**
  * Type of reason for claim on application. **Note:** may not be available for any cases
  */
-@ApiModel(description = "Type of reason for claim on application. **Note:** may not be available for any cases")
+@Schema(description = "Type of reason for claim on application. **Note:** may not be available for any cases")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-06-30T12:19:19.760+01:00[Europe/London]")
 
 public class SearchResponseDecisionStatusClaimReasonType   {
@@ -31,7 +27,7 @@ public class SearchResponseDecisionStatusClaimReasonType   {
    * Code for the claim reason type
    * @return code
   */
-  @ApiModelProperty(example = "HUMANRIGHTS", value = "Code for the claim reason type")
+  @Schema(example = "HUMANRIGHTS", description = "Code for the claim reason type")
 
 
   public String getCode() {
@@ -51,7 +47,7 @@ public class SearchResponseDecisionStatusClaimReasonType   {
    * Description of the claim reason type
    * @return description
   */
-  @ApiModelProperty(example = "Human Rights", value = "Description of the claim reason type")
+  @Schema(example = "Human Rights", description = "Description of the claim reason type")
 
 
   public String getDescription() {
@@ -85,7 +81,7 @@ public class SearchResponseDecisionStatusClaimReasonType   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResponseDecisionStatusClaimReasonType {\n");
-    
+
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");

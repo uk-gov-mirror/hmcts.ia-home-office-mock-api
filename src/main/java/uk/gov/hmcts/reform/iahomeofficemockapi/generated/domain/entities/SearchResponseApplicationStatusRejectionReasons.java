@@ -1,13 +1,9 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import java.util.Objects;
 
 /**
  * SearchResponseApplicationStatusRejectionReasons
@@ -27,7 +23,7 @@ public class SearchResponseApplicationStatusRejectionReasons   {
    * Reason for application rejection
    * @return reason
   */
-  @ApiModelProperty(example = "Application not completed properly", value = "Reason for application rejection")
+  @Schema(example = "Application not completed properly", description = "Reason for application rejection")
 
 
   public String getReason() {
@@ -60,7 +56,7 @@ public class SearchResponseApplicationStatusRejectionReasons   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResponseApplicationStatusRejectionReasons {\n");
-    
+
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("}");
     return sb.toString();

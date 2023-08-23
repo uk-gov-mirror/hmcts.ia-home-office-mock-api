@@ -1,15 +1,10 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.Person;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseApplicationStatus;
-import org.openapitools.jackson.nullable.JsonNullable;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.util.Objects;
 
 /**
  * SearchResponseStatus
@@ -32,7 +27,7 @@ public class SearchResponseStatus   {
    * Get person
    * @return person
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -53,7 +48,7 @@ public class SearchResponseStatus   {
    * Get applicationStatus
    * @return applicationStatus
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -88,7 +83,7 @@ public class SearchResponseStatus   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResponseStatus {\n");
-    
+
     sb.append("    person: ").append(toIndentedString(person)).append("\n");
     sb.append("    applicationStatus: ").append(toIndentedString(applicationStatus)).append("\n");
     sb.append("}");
