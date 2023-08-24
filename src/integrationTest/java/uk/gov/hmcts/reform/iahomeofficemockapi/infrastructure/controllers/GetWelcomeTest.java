@@ -12,8 +12,7 @@ public class GetWelcomeTest extends SpringBootIntegrationTest {
 
     @Test
     public void welcomeRootEndpoint() throws Exception {
-        MvcResult response = mockMvc.perform(get("/")).andExpect(status().isOk()).andReturn();
-
-        assertThat(response.getResponse().getContentAsString()).startsWith("Welcome");
+        MvcResult response = mockMvc.perform(get("/welcome")).andExpect(status().isOk()).andReturn();
+        assertThat(response.getResponse().getContentAsString()).startsWith("Welcome to Home Office API");
     }
 }

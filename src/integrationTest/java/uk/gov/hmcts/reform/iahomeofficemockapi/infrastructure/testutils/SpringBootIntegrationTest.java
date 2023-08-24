@@ -12,7 +12,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.infrastructure.api.invoker.OpenAPI2SpringBoot;
+import uk.gov.hmcts.reform.iahomeofficemockapi.OpenAPI2SpringBoot;
 
 @SpringBootTest(classes = {
     OpenAPI2SpringBoot.class
@@ -31,7 +31,7 @@ public class SpringBootIntegrationTest {
     public void spinUp() {
         server = new WireMockServer(WireMockConfiguration.options()
                                         .notifier(new Slf4jNotifier(true))
-                                        .port(8990));
+                                        .port(8098));
         server.start();
     }
 

@@ -21,7 +21,7 @@ public class WelcomeController {
      *
      * @return Welcome message from the service.
      */
-    @GetMapping("/")
+    @GetMapping("/welcome")
     public ResponseEntity<String> welcome() {
         return ok("Welcome to Home Office API");
     }
