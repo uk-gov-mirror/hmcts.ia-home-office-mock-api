@@ -14,6 +14,7 @@ def component = "home-office-mock-api"
 def secrets = [
     'ia-${env}': [
         secret('s2s-microservice', 'IA_S2S_MICROSERVICE'),
+        secret('app-insights-connection-string', 'app-insights-connection-string')
     ]
 ]
 
