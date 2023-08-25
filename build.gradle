@@ -1,3 +1,12 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath("net.serenity-bdd:serenity-gradle-plugin:3.2.3")
+  }
+}
+
 plugins {
   id 'application'
   id 'checkstyle'
@@ -297,7 +306,12 @@ dependencies {
   testImplementation group: 'org.apiguardian', name: 'apiguardian-api', version: '1.1.2'
 
   functionalTestImplementation group: 'org.apiguardian', name: 'apiguardian-api', version: '1.1.2'
-  functionalTestImplementation group: 'net.serenity-bdd', name: 'serenity-rest-assured', version: '3.9.8 '
+  functionalTestImplementation group: 'net.serenity-bdd', name: 'serenity-rest-assured', version: '3.2.3'
+  functionalTestImplementation group: 'net.serenity-bdd', name: 'serenity-core', version: '3.2.3'
+  functionalTestImplementation group: 'net.serenity-bdd', name: 'serenity-junit', version: '3.2.3'
+  functionalTestImplementation group: 'net.serenity-bdd', name: 'serenity-spring', version: '3.2.3'
+  functionalTestImplementation group: 'io.rest-assured', name: 'rest-assured-all', version: '4.3.1'
+  functionalTestImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.1'
 
   smokeTestImplementation group: 'org.apiguardian', name: 'apiguardian-api', version: '1.1.2'
 
