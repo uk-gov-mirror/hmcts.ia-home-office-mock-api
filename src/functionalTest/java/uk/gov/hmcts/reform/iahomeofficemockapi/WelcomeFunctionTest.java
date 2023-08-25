@@ -1,7 +1,5 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
@@ -10,9 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import uk.gov.hmcts.reform.iahomeofficemockapi.infrastructure.controllers.WelcomeController;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(classes = WelcomeController.class)
 @ActiveProfiles("functional")
@@ -34,7 +33,7 @@ public class WelcomeFunctionTest {
         final Response response1 = SerenityRest
             .given()
             .when()
-            .get("/");
+            .get("/welcome");
 
         String response = response1
             .then()
