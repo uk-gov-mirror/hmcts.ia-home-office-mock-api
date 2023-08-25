@@ -8,12 +8,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import uk.gov.hmcts.reform.iahomeofficemockapi.infrastructure.controllers.WelcomeController;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = WelcomeController.class)
+@SpringBootTest
 @ActiveProfiles("functional")
 public class WelcomeFunctionTest {
 
@@ -33,11 +34,12 @@ public class WelcomeFunctionTest {
         final Response response1 = SerenityRest
             .given()
             .when()
-            .get("/welcome");
+            .get("/");
 
         String response = response1
             .then()
             .statusCode(HttpStatus.OK.value())
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
             .and()
             .extract()
             .body()
