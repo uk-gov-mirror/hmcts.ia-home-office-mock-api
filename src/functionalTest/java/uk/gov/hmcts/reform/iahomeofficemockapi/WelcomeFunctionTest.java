@@ -47,7 +47,7 @@ public class WelcomeFunctionTest {
         response1
             .then()
             .statusCode(HttpStatus.OK.value())
-            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .contentType(MediaType.TEXT_PLAIN_VALUE + ";charset=UTF-8")
             .body(is(response1));
     }
 
