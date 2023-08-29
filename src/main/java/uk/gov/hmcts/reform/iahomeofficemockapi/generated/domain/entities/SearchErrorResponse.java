@@ -1,15 +1,10 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.ErrorResponse;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.MessageHeader;
-import org.openapitools.jackson.nullable.JsonNullable;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.util.Objects;
 
 /**
  * SearchErrorResponse
@@ -32,7 +27,7 @@ public class SearchErrorResponse   {
    * Get messageHeader
    * @return messageHeader
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -53,7 +48,7 @@ public class SearchErrorResponse   {
    * Get errorDetail
    * @return errorDetail
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -88,7 +83,7 @@ public class SearchErrorResponse   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchErrorResponse {\n");
-    
+
     sb.append("    messageHeader: ").append(toIndentedString(messageHeader)).append("\n");
     sb.append("    errorDetail: ").append(toIndentedString(errorDetail)).append("\n");
     sb.append("}");

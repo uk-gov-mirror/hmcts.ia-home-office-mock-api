@@ -4,16 +4,11 @@
  */
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.infrastructure.api;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.Optional;
-import javax.validation.Valid;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,14 +24,18 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.NativeWebRequest;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchErrorResponse;
 import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchParameters;
 import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-01T14:15:45.837+01:00[Europe/London]")
+import javax.validation.Valid;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-01T14:15:45.837+01:00[Europe/London]")
 @Validated
-@Api(value = "applicationStatus", description = "the applicationStatus API")
+@Tag(name = "applicationStatus", description = "the applicationStatus API")
 public interface ApplicationStatusApi {
 
     static final Logger log = LoggerFactory.getLogger(ApplicationStatusApi.class);
@@ -52,17 +51,17 @@ public interface ApplicationStatusApi {
      * @param searchParameters (required)
      * @return OK (status code 200) or Invalid status value (status code 400)
      */
-    @ApiOperation(value = "Finds applications by search parameters (initially one).", nickname = "applicationStatusGetBySearchParametersPost", notes = "", response = SearchResponse.class, tags = {})
+    @Operation(description = "Finds applications by search parameters (initially one).", operationId = "applicationStatusGetBySearchParametersPost", tags = {})
     @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "OK", response = SearchResponse.class),
-        @ApiResponse(code = 400, message = "Invalid status value", response = SearchErrorResponse.class)})
+        @ApiResponse(responseCode = "200", description = "OK"),
+        @ApiResponse(responseCode = "400", description = "Invalid status value")})
     @RequestMapping(value = "/applicationStatus/getBySearchParameters",
         produces = {"application/json"},
         consumes = {"application/json"},
         method = RequestMethod.POST)
     default ResponseEntity<SearchResponse> applicationStatusGetBySearchParametersPost(
-        @ApiParam(value = "", required = true) @Valid @RequestHeader(HttpHeaders.AUTHORIZATION) String bearerToken,
-        @ApiParam(value = "", required = true) @Valid @RequestBody SearchParameters searchParameters) {
+        @Parameter(required = true) @Valid @RequestHeader(HttpHeaders.AUTHORIZATION) String bearerToken,
+        @Parameter(required = true) @Valid @RequestBody SearchParameters searchParameters) {
 
         final Optional<NativeWebRequest> nativeWebRequest = getRequest();
 
@@ -97,16 +96,16 @@ public interface ApplicationStatusApi {
      * @param searchParameters (required)
      * @return OK (status code 200) or Invalid status value (status code 400)
      */
-    @ApiOperation(value = "get acces token.", nickname = "tokenPost", notes = "", response = String.class, tags = {})
+    @Operation(summary = "get acces token.", operationId = "tokenPost", tags = {})
     @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "OK", response = String.class)
+        @ApiResponse(responseCode = "200", description = "OK")
     })
     @RequestMapping(value = "/token",
         produces = {"application/json"},
         consumes = {"application/x-www-form-urlencoded"},
         method = RequestMethod.POST)
     default ResponseEntity<SearchResponse> tokenPost(
-        @ApiParam(value = "", required = true) @Valid @RequestBody MultiValueMap<String, String> requestBody) {
+        @Parameter(required = true) @Valid @RequestBody MultiValueMap<String, String> requestBody) {
 
         getRequest().ifPresent(request -> {
             log.info("/token request->return mock response");

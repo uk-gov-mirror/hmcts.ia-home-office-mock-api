@@ -1,21 +1,28 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
-import uk.gov.hmcts.reform.iahomeofficemockapi.infrastructure.controllers.WelcomeController;
+import uk.gov.hmcts.reform.iahomeofficemockapi.generated.infrastructure.api.invoker.OpenAPI2SpringBoot;
 
-@SpringBootTest(classes = WelcomeController.class)
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.is;
+
+@SpringBootTest(classes = {
+    OpenAPI2SpringBoot.class
+})
 @ActiveProfiles("functional")
+@AutoConfigureMockMvc(addFilters = false)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class WelcomeFunctionTest {
 
     @Value("${targetInstance}") private String targetInstance;
@@ -33,18 +40,15 @@ public class WelcomeFunctionTest {
 
         final Response response1 = SerenityRest
             .given()
+            .relaxedHTTPSValidation()
             .when()
             .get("/");
 
-        String response = response1
+        response1
             .then()
             .statusCode(HttpStatus.OK.value())
-            .and()
-            .extract()
-            .body()
-            .asString();
-
-        assertThat(response.contains(expected));
+            .contentType(MediaType.TEXT_PLAIN_VALUE + ";charset=UTF-8")
+            .body(is(expected));
     }
 
 }

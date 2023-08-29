@@ -1,19 +1,15 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.ConsumerRef;
-import org.openapitools.jackson.nullable.JsonNullable;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.util.Objects;
 
 /**
  * Reference and consumer name
  */
-@ApiModel(description = "Reference and consumer name")
+@Schema(description = "Reference and consumer name")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-06-30T12:19:19.760+01:00[Europe/London]")
 
 public class InstructMessageConsumerReference   {
@@ -29,7 +25,7 @@ public class InstructMessageConsumerReference   {
    * Get consumer
    * @return consumer
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -63,7 +59,7 @@ public class InstructMessageConsumerReference   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstructMessageConsumerReference {\n");
-    
+
     sb.append("    consumer: ").append(toIndentedString(consumer)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -1,19 +1,15 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import java.util.Objects;
 
 /**
  * PersonGender
  */
+@Schema
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-01T14:15:45.837+01:00[Europe/London]")
-
 public class PersonGender   {
   @JsonProperty("code")
   private String code;
@@ -30,7 +26,7 @@ public class PersonGender   {
    * Letter code for the gender
    * @return code
   */
-  @ApiModelProperty(example = "M (denoting male)", value = "Letter code for the gender")
+  @Schema(example = "M (denoting male)", description = "Letter code for the gender")
 
 
   public String getCode() {
@@ -50,7 +46,7 @@ public class PersonGender   {
    * Gender description
    * @return description
   */
-  @ApiModelProperty(example = "Male", value = "Gender description")
+  @Schema(example = "Male", description = "Gender description")
 
 
   public String getDescription() {
@@ -84,7 +80,7 @@ public class PersonGender   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PersonGender {\n");
-    
+
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");

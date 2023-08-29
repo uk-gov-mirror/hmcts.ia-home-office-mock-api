@@ -1,14 +1,13 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Objects;
 
 /**
  * SearchParametersSearchParams
@@ -64,7 +63,7 @@ public class SearchParametersSearchParams   {
    * Reference type
    * @return spType
   */
-  @ApiModelProperty(example = "DOCUMENT_REFERENCE", required = true, value = "Reference type")
+  @Schema(example = "DOCUMENT_REFERENCE", required = true, description = "Reference type")
   @NotNull
 
 
@@ -85,10 +84,10 @@ public class SearchParametersSearchParams   {
    * Unique reference
    * @return spValue
   */
-  @ApiModelProperty(example = "UAN (nnnn-nnnn-nnnn-nnnn) or CID (case ID, e.g. 001234567)", required = true, value = "Unique reference")
+  @Schema(example = "UAN (nnnn-nnnn-nnnn-nnnn) or CID (case ID, e.g. 001234567)", required = true, description = "Unique reference")
   @NotNull
 
-@Size(max=30) 
+@Size(max=30)
   public String getSpValue() {
     return spValue;
   }
@@ -120,7 +119,7 @@ public class SearchParametersSearchParams   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchParametersSearchParams {\n");
-    
+
     sb.append("    spType: ").append(toIndentedString(spType)).append("\n");
     sb.append("    spValue: ").append(toIndentedString(spValue)).append("\n");
     sb.append("}");

@@ -1,23 +1,19 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.MessageHeader;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseStatus;
-import org.openapitools.jackson.nullable.JsonNullable;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.util.Objects;
 
 /**
  * Response containing details of the application search.
  */
-@ApiModel(description = "Response containing details of the application search.")
+@Schema(description = "Response containing details of the application search.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-01T14:15:45.837+01:00[Europe/London]")
 
 public class SearchResponse   {
@@ -73,7 +69,7 @@ public class SearchResponse   {
    * Get messageHeader
    * @return messageHeader
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -94,7 +90,7 @@ public class SearchResponse   {
    * Identifies the type of message
    * @return messageType
   */
-  @ApiModelProperty(example = "RESPONSE_RIGHT_OF_APPEAL_DETAILS", value = "Identifies the type of message")
+  @Schema(example = "RESPONSE_RIGHT_OF_APPEAL_DETAILS", description = "Identifies the type of message")
 
 
   public MessageTypeEnum getMessageType() {
@@ -122,7 +118,7 @@ public class SearchResponse   {
    * An array of persons and application status; generally, the status will be the same for all persons but this format provides flexibility
    * @return status
   */
-  @ApiModelProperty(value = "An array of persons and application status; generally, the status will be the same for all persons but this format provides flexibility")
+  @Schema(description= "An array of persons and application status; generally, the status will be the same for all persons but this format provides flexibility")
 
   @Valid
 
@@ -158,7 +154,7 @@ public class SearchResponse   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResponse {\n");
-    
+
     sb.append("    messageHeader: ").append(toIndentedString(messageHeader)).append("\n");
     sb.append("    messageType: ").append(toIndentedString(messageType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

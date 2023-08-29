@@ -1,28 +1,18 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.validation.Valid;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseDecisionStatusApplicationType;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseDecisionStatusClaimReasonType;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseDecisionStatusDecisionCommunication;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseDecisionStatusDecisionType;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseDecisionStatusRejectionReasons;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseDecisionStatusRoleSubType;
-import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.SearchResponseDecisionStatusRoleType;
-import org.openapitools.jackson.nullable.JsonNullable;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.util.Objects;
 
 /**
  * Current status of the individual&#39;s application
  */
-@ApiModel(description = "Current status of the individual's application")
+@Schema(description = "Current status of the individual's application")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-06-30T12:19:19.760+01:00[Europe/London]")
 
 public class SearchResponseDecisionStatus   {
@@ -63,7 +53,7 @@ public class SearchResponseDecisionStatus   {
    * Get roleType
    * @return roleType
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -84,7 +74,7 @@ public class SearchResponseDecisionStatus   {
    * Get roleSubType
    * @return roleSubType
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -105,7 +95,7 @@ public class SearchResponseDecisionStatus   {
    * Get applicationType
    * @return applicationType
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -126,7 +116,7 @@ public class SearchResponseDecisionStatus   {
    * Get claimReasonType
    * @return claimReasonType
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -147,7 +137,7 @@ public class SearchResponseDecisionStatus   {
    * Get decisionType
    * @return decisionType
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -168,7 +158,7 @@ public class SearchResponseDecisionStatus   {
    * Date (and time, if available) of decision made on the application, in the standard format yyyy-mm-dd (with the HH:mm:ss if the time is available - this won't be displayed if it isn't). All dates/times are assumed to be in UTC
    * @return decisionDate
   */
-  @ApiModelProperty(example = "2017-07-21T17:32:28Z", value = "Date (and time, if available) of decision made on the application, in the standard format yyyy-mm-dd (with the HH:mm:ss if the time is available - this won't be displayed if it isn't). All dates/times are assumed to be in UTC")
+  @Schema(example = "2017-07-21T17:32:28Z", description = "Date (and time, if available) of decision made on the application, in the standard format yyyy-mm-dd (with the HH:mm:ss if the time is available - this won't be displayed if it isn't). All dates/times are assumed to be in UTC")
 
   @Valid
 
@@ -189,7 +179,7 @@ public class SearchResponseDecisionStatus   {
    * Get decisionCommunication
    * @return decisionCommunication
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -218,7 +208,7 @@ public class SearchResponseDecisionStatus   {
    * Rejection reasons
    * @return rejectionReasons
   */
-  @ApiModelProperty(value = "Rejection reasons")
+  @Schema(description= "Rejection reasons")
 
   @Valid
 
@@ -239,7 +229,7 @@ public class SearchResponseDecisionStatus   {
    * Indicates whether the decision can be appealed or not
    * @return appealable
   */
-  @ApiModelProperty(example = "true", value = "Indicates whether the decision can be appealed or not")
+  @Schema(example = "true", description = "Indicates whether the decision can be appealed or not")
 
 
   public Boolean getAppealable() {
@@ -280,7 +270,7 @@ public class SearchResponseDecisionStatus   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResponseDecisionStatus {\n");
-    
+
     sb.append("    roleType: ").append(toIndentedString(roleType)).append("\n");
     sb.append("    roleSubType: ").append(toIndentedString(roleSubType)).append("\n");
     sb.append("    applicationType: ").append(toIndentedString(applicationType)).append("\n");

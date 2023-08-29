@@ -1,18 +1,14 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import java.util.Objects;
 
 /**
  * Person&#39;s nationality
  */
-@ApiModel(description = "Person's nationality")
+@Schema(description = "Person's nationality")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-01T14:15:45.837+01:00[Europe/London]")
 
 public class PersonNationality   {
@@ -31,7 +27,7 @@ public class PersonNationality   {
    * Short code for the nationality
    * @return code
   */
-  @ApiModelProperty(example = "CAN (denoting Canada)", value = "Short code for the nationality")
+  @Schema(example = "CAN (denoting Canada)", description = "Short code for the nationality")
 
 
   public String getCode() {
@@ -51,7 +47,7 @@ public class PersonNationality   {
    * Description of the nationality
    * @return description
   */
-  @ApiModelProperty(example = "Canada", value = "Description of the nationality")
+  @Schema(example = "Canada", description = "Description of the nationality")
 
 
   public String getDescription() {
@@ -85,7 +81,7 @@ public class PersonNationality   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PersonNationality {\n");
-    
+
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");

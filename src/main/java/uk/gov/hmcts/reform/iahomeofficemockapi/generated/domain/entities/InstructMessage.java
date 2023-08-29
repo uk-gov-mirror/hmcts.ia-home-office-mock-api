@@ -1,19 +1,19 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * ### Message instructing Home Office about an event, or action to perform.  #### Mandatory items for all messages  messageHeader, messageType, hoReference, and consumerReference  #### Optional items  note  #### Message Types and Mandatory Elements  REQUEST_CHALLENGE_END: endReason, endChallengeDate  REQUEST_EVIDENCE_BUNDLE: challenge, deadlineDate  REQUEST_REVIEW: deadlineDate (a review has its own deadline)  HEARING: hearing  HEARING_BUNDLE_READY: hearing (passing just hmctsHearingRef and hearingType)  COURT_OUTCOME: courtOutcome  PERMISSION_TO_APPEAL: courtType  DEFAULT: No additional mandatory elements; generic item that is not a bundle/review request
  */
-@ApiModel(description = "### Message instructing Home Office about an event, or action to perform.  #### Mandatory items for all messages  messageHeader, messageType, hoReference, and consumerReference  #### Optional items  note  #### Message Types and Mandatory Elements  REQUEST_CHALLENGE_END: endReason, endChallengeDate  REQUEST_EVIDENCE_BUNDLE: challenge, deadlineDate  REQUEST_REVIEW: deadlineDate (a review has its own deadline)  HEARING: hearing  HEARING_BUNDLE_READY: hearing (passing just hmctsHearingRef and hearingType)  COURT_OUTCOME: courtOutcome  PERMISSION_TO_APPEAL: courtType  DEFAULT: No additional mandatory elements; generic item that is not a bundle/review request ")
+@Schema(description = "### Message instructing Home Office about an event, or action to perform.  #### Mandatory items for all messages  messageHeader, messageType, hoReference, and consumerReference  #### Optional items  note  #### Message Types and Mandatory Elements  REQUEST_CHALLENGE_END: endReason, endChallengeDate  REQUEST_EVIDENCE_BUNDLE: challenge, deadlineDate  REQUEST_REVIEW: deadlineDate (a review has its own deadline)  HEARING: hearing  HEARING_BUNDLE_READY: hearing (passing just hmctsHearingRef and hearingType)  COURT_OUTCOME: courtOutcome  PERMISSION_TO_APPEAL: courtType  DEFAULT: No additional mandatory elements; generic item that is not a bundle/review request ")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-01T14:15:45.837+01:00[Europe/London]")
 
 public class InstructMessage   {
@@ -189,7 +189,7 @@ public class InstructMessage   {
    * Get messageHeader
    * @return messageHeader
   */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(required = true)
   @NotNull
 
   @Valid
@@ -211,7 +211,7 @@ public class InstructMessage   {
    * Message type
    * @return messageType
   */
-  @ApiModelProperty(required = true, value = "Message type")
+  @Schema(required = true, description = "Message type")
   @NotNull
 
 
@@ -232,7 +232,7 @@ public class InstructMessage   {
    * Home Office reference (UAN or CID case ID)
    * @return hoReference
   */
-  @ApiModelProperty(example = "nnnn-nnnn-nnnn-nnnn (UAN) or CID (case ID, e.g. 001234567)", required = true, value = "Home Office reference (UAN or CID case ID)")
+  @Schema(example = "nnnn-nnnn-nnnn-nnnn (UAN) or CID (case ID, e.g. 001234567)", required = true, description = "Home Office reference (UAN or CID case ID)")
   @NotNull
 
 
@@ -253,7 +253,7 @@ public class InstructMessage   {
    * Get consumerReference
    * @return consumerReference
   */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(required = true)
   @NotNull
 
   @Valid
@@ -275,7 +275,7 @@ public class InstructMessage   {
    * Code indicating reason for ending a challenge. *Mandatory if messageType is REQUEST_CHALLENGE_END*
    * @return endReason
   */
-  @ApiModelProperty(value = "Code indicating reason for ending a challenge. *Mandatory if messageType is REQUEST_CHALLENGE_END*")
+  @Schema(description= "Code indicating reason for ending a challenge. *Mandatory if messageType is REQUEST_CHALLENGE_END*")
 
 
   public EndReasonEnum getEndReason() {
@@ -295,7 +295,7 @@ public class InstructMessage   {
    * Date (and time, if available) the challenge was ended, in the standard format yyyy-mm-dd (with HH:mm:ss if the time is available, otherwise not). Date/time is assumed to be in UTC. *Mandatory if messageType is REQUEST_CHALLENGE_END*
    * @return endChallengeDate
   */
-  @ApiModelProperty(example = "2017-07-21T17:32:28Z", value = "Date (and time, if available) the challenge was ended, in the standard format yyyy-mm-dd (with HH:mm:ss if the time is available, otherwise not). Date/time is assumed to be in UTC. *Mandatory if messageType is REQUEST_CHALLENGE_END*")
+  @Schema(example = "2017-07-21T17:32:28Z", description = "Date (and time, if available) the challenge was ended, in the standard format yyyy-mm-dd (with HH:mm:ss if the time is available, otherwise not). Date/time is assumed to be in UTC. *Mandatory if messageType is REQUEST_CHALLENGE_END*")
 
   @Valid
 
@@ -316,7 +316,7 @@ public class InstructMessage   {
    * Deadline date (and time, if available) for the appeal, in the standard format yyyy-mm-dd (with HH:mm:ss if the time is available, otherwise not). Date/time is assumed to be in UTC
    * @return deadlineDate
   */
-  @ApiModelProperty(example = "2017-07-21T17:32:28Z", value = "Deadline date (and time, if available) for the appeal, in the standard format yyyy-mm-dd (with HH:mm:ss if the time is available, otherwise not). Date/time is assumed to be in UTC")
+  @Schema(example = "2017-07-21T17:32:28Z", description = "Deadline date (and time, if available) for the appeal, in the standard format yyyy-mm-dd (with HH:mm:ss if the time is available, otherwise not). Date/time is assumed to be in UTC")
 
   @Valid
 
@@ -337,7 +337,7 @@ public class InstructMessage   {
    * Court type. *Mandatory if messageType is PERMISSION_TO_APPEAL*
    * @return courtType
   */
-  @ApiModelProperty(value = "Court type. *Mandatory if messageType is PERMISSION_TO_APPEAL*")
+  @Schema(description= "Court type. *Mandatory if messageType is PERMISSION_TO_APPEAL*")
 
 
   public CourtTypeEnum getCourtType() {
@@ -357,7 +357,7 @@ public class InstructMessage   {
    * Get challenge
    * @return challenge
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -378,7 +378,7 @@ public class InstructMessage   {
    * Get hearing
    * @return hearing
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -399,7 +399,7 @@ public class InstructMessage   {
    * Get courtOutcome
    * @return courtOutcome
   */
-  @ApiModelProperty(value = "")
+  @Schema()
 
   @Valid
 
@@ -420,7 +420,7 @@ public class InstructMessage   {
    * Optional note. Can be used for indicating notification type and, possibly, Home Office actions required
    * @return note
   */
-  @ApiModelProperty(example = "Additional notes from HMCTS", value = "Optional note. Can be used for indicating notification type and, possibly, Home Office actions required")
+  @Schema(example = "Additional notes from HMCTS", description = "Optional note. Can be used for indicating notification type and, possibly, Home Office actions required")
 
 
   public String getNote() {

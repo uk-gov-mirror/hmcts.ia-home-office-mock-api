@@ -1,20 +1,18 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import org.openapitools.jackson.nullable.JsonNullable;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Communication of the decision
  */
-@ApiModel(description = "Communication of the decision")
+@Schema(description = "Communication of the decision")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-06-30T12:19:19.760+01:00[Europe/London]")
 
 public class SearchResponseDecisionStatusDecisionCommunication   {
@@ -23,7 +21,7 @@ public class SearchResponseDecisionStatusDecisionCommunication   {
    */
   public enum TypeEnum {
     EMAIL("EMAIL"),
-    
+
     POST("POST");
 
     private String value;
@@ -71,7 +69,7 @@ public class SearchResponseDecisionStatusDecisionCommunication   {
    * Type of communication
    * @return type
   */
-  @ApiModelProperty(example = "EMAIL", value = "Type of communication")
+  @Schema(example = "EMAIL", description = "Type of communication")
 
 
   public TypeEnum getType() {
@@ -91,7 +89,7 @@ public class SearchResponseDecisionStatusDecisionCommunication   {
    * Description of the communication type
    * @return description
   */
-  @ApiModelProperty(example = "E-mail", value = "Description of the communication type")
+  @Schema(example = "E-mail", description = "Description of the communication type")
 
 
   public String getDescription() {
@@ -111,7 +109,7 @@ public class SearchResponseDecisionStatusDecisionCommunication   {
    * Date (and time, if available) the communication was sent. This is effectively the decision date. See description of decisionDate for details of how it will be displayed. This is assumed to be in UTC
    * @return sentDate
   */
-  @ApiModelProperty(example = "2017-07-21T17:32:28Z", value = "Date (and time, if available) the communication was sent. This is effectively the decision date. See description of decisionDate for details of how it will be displayed. This is assumed to be in UTC")
+  @Schema(example = "2017-07-21T17:32:28Z", description = "Date (and time, if available) the communication was sent. This is effectively the decision date. See description of decisionDate for details of how it will be displayed. This is assumed to be in UTC")
 
   @Valid
 
@@ -147,7 +145,7 @@ public class SearchResponseDecisionStatusDecisionCommunication   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResponseDecisionStatusDecisionCommunication {\n");
-    
+
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    sentDate: ").append(toIndentedString(sentDate)).append("\n");

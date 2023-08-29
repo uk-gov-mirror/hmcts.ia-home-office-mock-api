@@ -1,20 +1,19 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.time.LocalDate;
-import org.openapitools.jackson.nullable.JsonNullable;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * Details of a hearing.
  */
-@ApiModel(description = "Details of a hearing.")
+@Schema(description = "Details of a hearing.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-01T14:15:45.837+01:00[Europe/London]")
 
 public class Hearing   {
@@ -35,7 +34,7 @@ public class Hearing   {
    */
   public enum HearingTypeEnum {
     PAPER("PAPER"),
-    
+
     ORAL("ORAL");
 
     private String value;
@@ -83,7 +82,7 @@ public class Hearing   {
    * HMCTS reference for a hearing. (Allows for multiple hearings though usually it's just one.)
    * @return hmctsHearingRef
   */
-  @ApiModelProperty(required = true, value = "HMCTS reference for a hearing. (Allows for multiple hearings though usually it's just one.)")
+  @Schema(required = true, description = "HMCTS reference for a hearing. (Allows for multiple hearings though usually it's just one.)")
   @NotNull
 
 
@@ -104,7 +103,7 @@ public class Hearing   {
    * Venue where the hearing is to take place
    * @return hearingLocation
   */
-  @ApiModelProperty(example = "Royal Courts of Justice, London", value = "Venue where the hearing is to take place")
+  @Schema(example = "Royal Courts of Justice, London", description = "Venue where the hearing is to take place")
 
 
   public String getHearingLocation() {
@@ -124,7 +123,7 @@ public class Hearing   {
    * Date of the hearing, in the standard format yyyy-mm-dd
    * @return hearingDate
   */
-  @ApiModelProperty(example = "Fri Jul 21 01:00:00 BST 2017", value = "Date of the hearing, in the standard format yyyy-mm-dd")
+  @Schema(example = "Fri Jul 21 01:00:00 BST 2017", description = "Date of the hearing, in the standard format yyyy-mm-dd")
 
   @Valid
 
@@ -145,7 +144,7 @@ public class Hearing   {
    * Time of the hearing, in the standard format HH:mm:ss. Time is assumed to be in UTC
    * @return hearingTime
   */
-  @ApiModelProperty(example = "10:30:00Z", value = "Time of the hearing, in the standard format HH:mm:ss. Time is assumed to be in UTC")
+  @Schema(example = "10:30:00Z", description = "Time of the hearing, in the standard format HH:mm:ss. Time is assumed to be in UTC")
 
 
   public String getHearingTime() {
@@ -165,7 +164,7 @@ public class Hearing   {
    * Type of hearing
    * @return hearingType
   */
-  @ApiModelProperty(required = true, value = "Type of hearing")
+  @Schema(required = true, description = "Type of hearing")
   @NotNull
 
 
@@ -186,7 +185,7 @@ public class Hearing   {
    * Number of witnesses to be called to provide evidence at the hearing
    * @return witnessQty
   */
-  @ApiModelProperty(value = "Number of witnesses to be called to provide evidence at the hearing")
+  @Schema(description = "Number of witnesses to be called to provide evidence at the hearing")
 
 
   public Integer getWitnessQty() {
@@ -206,7 +205,7 @@ public class Hearing   {
    * Names of witnesses. Recorded as notes in HMCTS, so cannot be a list of names
    * @return witnessNames
   */
-  @ApiModelProperty(example = "John Smyth, Jennie Walker", value = "Names of witnesses. Recorded as notes in HMCTS, so cannot be a list of names")
+  @Schema(example = "John Smyth, Jennie Walker", description = "Names of witnesses. Recorded as notes in HMCTS, so cannot be a list of names")
 
 
   public String getWitnessNames() {
@@ -245,7 +244,7 @@ public class Hearing   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Hearing {\n");
-    
+
     sb.append("    hmctsHearingRef: ").append(toIndentedString(hmctsHearingRef)).append("\n");
     sb.append("    hearingLocation: ").append(toIndentedString(hearingLocation)).append("\n");
     sb.append("    hearingDate: ").append(toIndentedString(hearingDate)).append("\n");
