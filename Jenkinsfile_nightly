@@ -15,7 +15,6 @@ properties([
 
 
 @Library("Infrastructure")
-import uk.gov.hmcts.contino.GradleBuilder
 
 def type = "java"
 def product = "ia"
@@ -46,8 +45,6 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
   ]
 }
 
-GradleBuilder builder = new GradleBuilder(this, product)
-
 withPipeline(type, product, component) {
     env.TEST_URL = params.URL_TO_TEST
     env.Rules = params.SecurityRules
@@ -69,16 +66,6 @@ withPipeline(type, product, component) {
 
     after('fortify-scan') {
       steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'
-    }
-
-    before('fullFunctionalTest') {
-      try {
-        builder.gradle('test')
-        builder.gradle('integration')
-        builder.gradle('smoke')
-      } finally {
-        junit '**/test-results/**/*.xml'
-      }
     }
 
     afterAlways('fullFunctionalTest') {
