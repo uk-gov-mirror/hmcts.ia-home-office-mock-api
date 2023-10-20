@@ -39,12 +39,12 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 
 GradleBuilder builder = new GradleBuilder(this, product)
 
-withPipeline(type, product, component) {
+withNightlyPipeline(type, product, component) {
     env.TEST_URL = params.URL_TO_TEST
     env.Rules = params.SecurityRules
     env.SecurityRules = params.SecurityRules
 
-//    loadVaultSecrets(secrets)
+    loadVaultSecrets(secrets)
 
     enableSecurityScan()
     enableMutationTest()
