@@ -28,4 +28,8 @@
     <cve>CVE-2022-45688</cve>
     <cve>CVE-2023-5072</cve>
   </suppress>
+  <suppress until="2024-01-31">
+    <notes>Suppress until org.springframework.cloud upgrade their org.bouncycastle dependents</notes>
+    <cve>CVE-2023-33202</cve>
+  </suppress>
 </suppressions>
