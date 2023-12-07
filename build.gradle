@@ -216,7 +216,7 @@ dependencyManagement {
     dependencySet(group: 'com.google.guava', version: '32.0.1-jre') {
       entry 'guava'
     }
-    dependencySet(group: 'org.apache.tomcat.embed', version: '9.0.82') {
+    dependencySet(group: 'org.apache.tomcat.embed', version: '9.0.83') {
       entry 'tomcat-embed-core'
       entry 'tomcat-embed-el'
       entry 'tomcat-embed-websocket'
@@ -248,7 +248,7 @@ def versions = [
   junit           : '5.8.2',
   junitPlatform   : '1.8.1',
   reformLogging   : '5.1.1',
-  springBoot      : '2.7.17',
+  springBoot      : '2.7.18',
   serenity        : '3.2.3'
 ]
 
@@ -270,6 +270,9 @@ dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: versions.springBoot
 
   implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.8'
+
+  implementation group: 'ch.qos.logback', name: 'logback-classic', version: 1.2.13
+  implementation group: 'ch.qos.logback', name: 'logback-core', version: 1.2.13
 
   implementation group: 'uk.gov.hmcts.reform', name: 'logging', version: versions.reformLogging
   implementation group: 'uk.gov.hmcts.reform', name: 'logging-appinsights', version: versions.reformLogging
