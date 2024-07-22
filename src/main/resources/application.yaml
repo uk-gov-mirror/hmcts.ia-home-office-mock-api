@@ -14,3 +14,5 @@ management:
 spring:
   application:
     name: IA Home Office Mock API
+  config:
+    import: "optional:configtree:/mnt/secrets/ia/"
