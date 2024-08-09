@@ -229,7 +229,6 @@ dependencyManagement {
 
 repositories {
   mavenLocal()
-  jcenter()
   mavenCentral()
   maven {
     url "https://dl.bintray.com/hmcts/hmcts-maven"
@@ -242,7 +241,7 @@ repositories {
 def versions = [
   junit           : '5.8.2',
   junitPlatform   : '1.8.1',
-  reformLogging   : '5.1.1',
+  reformLogging   : '6.0.1',
   springBoot      : '2.7.18',
   serenity        : '3.2.3'
 ]
@@ -269,8 +268,8 @@ dependencies {
   implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.13'
   implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.2.13'
 
-  implementation group: 'uk.gov.hmcts.reform', name: 'logging', version: versions.reformLogging
-  implementation group: 'uk.gov.hmcts.reform', name: 'logging-appinsights', version: versions.reformLogging
+  implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: versions.reformLogging
+  implementation group: 'com.github.hmcts.java-logging', name: 'logging-appinsights', version: versions.reformLogging
   implementation(group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.10.RELEASE') {
     exclude group: "org.bouncycastle", module: "bcprov-jdk15on"
   }
