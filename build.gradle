@@ -274,7 +274,7 @@ dependencyCheck {
   }
 }
 
-ext["tomcat.version"] = "10.1.55"
+ext["tomcat.version"] = "10.1.56"
 
 dependencyManagement {
   imports {
