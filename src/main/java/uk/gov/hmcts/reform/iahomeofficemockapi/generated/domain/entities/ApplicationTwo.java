@@ -1,24 +1,31 @@
 package uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import org.springframework.lang.Nullable;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.springframework.lang.Nullable;
+import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.Appellant;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Details of the application, including appellants&#39; biographic information.
  */
 
-@Schema(name = "Application", description = "Details of the application, including appellants' biographic information.")
+@Schema(name = "ApplicationTwo", description = "Details of the application, including appellants' biographic information.")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-25T13:34:49.897332+01:00[Europe/London]", comments = "Generator version: 7.20.0")
-public class Application {
+public class ApplicationTwo {
 
   private @Nullable String uan;
 
@@ -31,21 +38,21 @@ public class Application {
   @Valid
   private List<@Valid Appellant> appellants = new ArrayList<>();
 
-  public Application() {
+  public ApplicationTwo() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public Application(String hoClaimDate, String hoDecisionDate, String hoDecisionLetterDate, List<@Valid Appellant> appellants) {
+  public ApplicationTwo(String hoClaimDate, String hoDecisionDate, String hoDecisionLetterDate, List<@Valid Appellant> appellants) {
     this.hoClaimDate = hoClaimDate;
     this.hoDecisionDate = hoDecisionDate;
     this.hoDecisionLetterDate = hoDecisionLetterDate;
     this.appellants = appellants;
   }
 
-  public Application uan(@Nullable String uan) {
+  public ApplicationTwo uan(@Nullable String uan) {
     this.uan = uan;
     return this;
   }
@@ -54,8 +61,8 @@ public class Application {
    * Get uan
    * @return uan
    */
-  @Pattern(regexp = "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$")
-  @Schema(name = "uan", example = "1342-5786-9120-3564", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Pattern(regexp = "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$") 
+  @Schema(name = "uan", example = "1234-1234-1234-1234", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("uan")
   public @Nullable String getUan() {
     return uan;
@@ -65,7 +72,7 @@ public class Application {
     this.uan = uan;
   }
 
-  public Application hoClaimDate(String hoClaimDate) {
+  public ApplicationTwo hoClaimDate(String hoClaimDate) {
     this.hoClaimDate = hoClaimDate;
     return this;
   }
@@ -74,8 +81,8 @@ public class Application {
    * Get hoClaimDate
    * @return hoClaimDate
    */
-  @NotNull @Pattern(regexp = "^(19[0-9]{2}|[2-9][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$")
-  @Schema(name = "hoClaimDate", example = "2017-07-18", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Pattern(regexp = "^(19[0-9]{2}|[2-9][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$") 
+  @Schema(name = "hoClaimDate", example = "2019-09-18", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("hoClaimDate")
   public String getHoClaimDate() {
     return hoClaimDate;
@@ -85,7 +92,7 @@ public class Application {
     this.hoClaimDate = hoClaimDate;
   }
 
-  public Application hoDecisionDate(String hoDecisionDate) {
+  public ApplicationTwo hoDecisionDate(String hoDecisionDate) {
     this.hoDecisionDate = hoDecisionDate;
     return this;
   }
@@ -94,8 +101,8 @@ public class Application {
    * Get hoDecisionDate
    * @return hoDecisionDate
    */
-  @NotNull @Pattern(regexp = "^(19[0-9]{2}|[2-9][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$")
-  @Schema(name = "hoDecisionDate", example = "2017-07-19", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Pattern(regexp = "^(19[0-9]{2}|[2-9][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$") 
+  @Schema(name = "hoDecisionDate", example = "2019-09-19", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("hoDecisionDate")
   public String getHoDecisionDate() {
     return hoDecisionDate;
@@ -105,7 +112,7 @@ public class Application {
     this.hoDecisionDate = hoDecisionDate;
   }
 
-  public Application hoDecisionLetterDate(String hoDecisionLetterDate) {
+  public ApplicationTwo hoDecisionLetterDate(String hoDecisionLetterDate) {
     this.hoDecisionLetterDate = hoDecisionLetterDate;
     return this;
   }
@@ -114,8 +121,8 @@ public class Application {
    * Get hoDecisionLetterDate
    * @return hoDecisionLetterDate
    */
-  @NotNull @Pattern(regexp = "^(19[0-9]{2}|[2-9][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$")
-  @Schema(name = "hoDecisionLetterDate", example = "2017-07-20", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Pattern(regexp = "^(19[0-9]{2}|[2-9][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$") 
+  @Schema(name = "hoDecisionLetterDate", example = "2019-09-20", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("hoDecisionLetterDate")
   public String getHoDecisionLetterDate() {
     return hoDecisionLetterDate;
@@ -125,12 +132,12 @@ public class Application {
     this.hoDecisionLetterDate = hoDecisionLetterDate;
   }
 
-  public Application appellants(List<@Valid Appellant> appellants) {
+  public ApplicationTwo appellants(List<@Valid Appellant> appellants) {
     this.appellants = appellants;
     return this;
   }
 
-  public Application addAppellantsItem(Appellant appellantsItem) {
+  public ApplicationTwo addAppellantsItem(Appellant appellantsItem) {
     if (this.appellants == null) {
       this.appellants = new ArrayList<>();
     }
@@ -142,8 +149,8 @@ public class Application {
    * Get appellants
    * @return appellants
    */
-  @NotNull @Valid
-  @Schema(name = "appellants", example = "[{\"pp\":\"01\",\"familyName\":\"Bachchan\",\"givenNames\":\"Abhishek Amitabh\",\"dateOfBirth\":\"1976-02-05\",\"nationality\":\"IND\",\"roa\":true,\"asylumSupport\":false,\"hoFeeWaiver\":true,\"language\":\"hin\",\"interpreterNeeded\":false},{\"pp\":\"02\",\"familyName\":\"Rai\",\"givenNames\":\"Aishwarya\",\"dateOfBirth\":\"1973-11-01\",\"nationality\":\"IND\",\"roa\":false,\"asylumSupport\":true,\"hoFeeWaiver\":false,\"language\":\"hin\",\"interpreterNeeded\":true}]", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Valid 
+  @Schema(name = "appellants", example = "[{\"pp\":\"01\",\"familyName\":\"Gonzalez\",\"givenNames\":\"Jose\",\"dateOfBirth\":\"1989-02-10\",\"nationality\":\"ICE\",\"roa\":true,\"asylumSupport\":false,\"hoFeeWaiver\":true,\"language\":\"hin\",\"interpreterNeeded\":false}]", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("appellants")
   public List<@Valid Appellant> getAppellants() {
     return appellants;
@@ -161,12 +168,12 @@ public class Application {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Application application = (Application) o;
-    return Objects.equals(this.uan, application.uan) &&
-        Objects.equals(this.hoClaimDate, application.hoClaimDate) &&
-        Objects.equals(this.hoDecisionDate, application.hoDecisionDate) &&
-        Objects.equals(this.hoDecisionLetterDate, application.hoDecisionLetterDate) &&
-        Objects.equals(this.appellants, application.appellants);
+    ApplicationTwo applicationTwo = (ApplicationTwo) o;
+    return Objects.equals(this.uan, applicationTwo.uan) &&
+        Objects.equals(this.hoClaimDate, applicationTwo.hoClaimDate) &&
+        Objects.equals(this.hoDecisionDate, applicationTwo.hoDecisionDate) &&
+        Objects.equals(this.hoDecisionLetterDate, applicationTwo.hoDecisionLetterDate) &&
+        Objects.equals(this.appellants, applicationTwo.appellants);
   }
 
   @Override
@@ -177,7 +184,7 @@ public class Application {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Application {\n");
+    sb.append("class ApplicationTwo {\n");
     sb.append("    uan: ").append(toIndentedString(uan)).append("\n");
     sb.append("    hoClaimDate: ").append(toIndentedString(hoClaimDate)).append("\n");
     sb.append("    hoDecisionDate: ").append(toIndentedString(hoDecisionDate)).append("\n");
