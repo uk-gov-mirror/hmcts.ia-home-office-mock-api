@@ -16,6 +16,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -32,7 +33,7 @@ import java.time.OffsetDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-05-28T11:19:43.880285+01:00[Europe/London]", comments = "Generator version: 7.20.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-26T13:24:12.082923+01:00[Europe/London]", comments = "Generator version: 7.20.0")
 @Validated
 @Tag(name = "applications", description = "the applications API")
 public interface ApplicationsApi {
@@ -94,40 +95,57 @@ public interface ApplicationsApi {
         @NotNull @Parameter(name = "Home-Office-Event-DateTime", description = "", required = true, in = ParameterIn.HEADER) @RequestHeader(value = "Home-Office-Event-DateTime", required = true) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime homeOfficeEventDateTime
     ) {
         getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"hoClaimDate\" : \"2017-07-18\", \"uan\" : \"1342-5786-9120-3564\", \"hoDecisionLetterDate\" : \"2017-07-20\", \"appellants\" : [ { \"pp\" : \"01\", \"familyName\" : \"Bachchan\", \"givenNames\" : \"Abhishek Amitabh\", \"dateOfBirth\" : \"1976-02-05\", \"nationality\" : \"IND\", \"roa\" : true, \"asylumSupport\" : false, \"hoFeeWaiver\" : true, \"language\" : \"hin\", \"interpreterNeeded\" : false }, { \"pp\" : \"02\", \"familyName\" : \"Rai\", \"givenNames\" : \"Aishwarya\", \"dateOfBirth\" : \"1973-11-01\", \"nationality\" : \"IND\", \"roa\" : false, \"asylumSupport\" : true, \"hoFeeWaiver\" : false, \"language\" : \"hin\", \"interpreterNeeded\" : true } ], \"hoDecisionDate\" : \"2017-07-19\" }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
+                        for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                        if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                            String exampleString = "{ \"hoClaimDate\" : \"2017-07-18\", \"uan\" : \"1342-5786-9120-3564\", \"hoDecisionLetterDate\" : \"2017-07-20\", \"appellants\" : [ { \"pp\" : \"01\", \"familyName\" : \"Bachchan\", \"givenNames\" : \"Abhishek Amitabh\", \"dateOfBirth\" : \"1976-02-05\", \"nationality\" : \"IND\", \"roa\" : true, \"asylumSupport\" : false, \"hoFeeWaiver\" : true, \"language\" : \"hin\", \"interpreterNeeded\" : false }, { \"pp\" : \"02\", \"familyName\" : \"Rai\", \"givenNames\" : \"Aishwarya\", \"dateOfBirth\" : \"1973-11-01\", \"nationality\" : \"IND\", \"roa\" : false, \"asylumSupport\" : true, \"hoFeeWaiver\" : false, \"language\" : \"hin\", \"interpreterNeeded\" : true } ], \"hoDecisionDate\" : \"2017-07-19\" }";
+                            ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                            break;
+                        }
+                        if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                            String exampleString = "{ \"messageHeader\" : { \"eventDateTime\" : \"2017-07-21T17:32:28Z\", \"correlationId\" : \"ABC2344BCED2234EA\", \"consumer\" : { \"code\" : \"HMCTS\", \"description\" : \"HM Courts and Tribunal Service\" } }, \"errorDetail\" : { \"messageText\" : \"Invalid reference format. Format should be either nnnn-nnnn-nnnn-nnnn or 0(0) followed by digits (total length 9 or 10)\", \"success\" : \"false\", \"errorCode\" : \"2000\" } }";
+                            ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                            break;
+                        }
+                        if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                            String exampleString = "{ \"messageHeader\" : { \"eventDateTime\" : \"2017-07-21T17:32:28Z\", \"correlationId\" : \"ABC2344BCED2234EA\", \"consumer\" : { \"code\" : \"HMCTS\", \"description\" : \"HM Courts and Tribunal Service\" } }, \"errorDetail\" : { \"messageText\" : \"Invalid reference format. Format should be either nnnn-nnnn-nnnn-nnnn or 0(0) followed by digits (total length 9 or 10)\", \"success\" : \"false\", \"errorCode\" : \"2000\" } }";
+                            ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                            break;
+                        }
+                        if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                            String exampleString = "{ \"messageHeader\" : { \"eventDateTime\" : \"2017-07-21T17:32:28Z\", \"correlationId\" : \"ABC2344BCED2234EA\", \"consumer\" : { \"code\" : \"HMCTS\", \"description\" : \"HM Courts and Tribunal Service\" } }, \"errorDetail\" : { \"messageText\" : \"Invalid reference format. Format should be either nnnn-nnnn-nnnn-nnnn or 0(0) followed by digits (total length 9 or 10)\", \"success\" : \"false\", \"errorCode\" : \"2000\" } }";
+                            ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                            break;
+                        }
+                        if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                            String exampleString = "{ \"messageHeader\" : { \"eventDateTime\" : \"2017-07-21T17:32:28Z\", \"correlationId\" : \"ABC2344BCED2234EA\", \"consumer\" : { \"code\" : \"HMCTS\", \"description\" : \"HM Courts and Tribunal Service\" } }, \"errorDetail\" : { \"messageText\" : \"Invalid reference format. Format should be either nnnn-nnnn-nnnn-nnnn or 0(0) followed by digits (total length 9 or 10)\", \"success\" : \"false\", \"errorCode\" : \"2000\" } }";
+                            ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                            break;
+                        }
+                        if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                            String exampleString = "{ \"messageHeader\" : { \"eventDateTime\" : \"2017-07-21T17:32:28Z\", \"correlationId\" : \"ABC2344BCED2234EA\", \"consumer\" : { \"code\" : \"HMCTS\", \"description\" : \"HM Courts and Tribunal Service\" } }, \"errorDetail\" : { \"messageText\" : \"Invalid reference format. Format should be either nnnn-nnnn-nnnn-nnnn or 0(0) followed by digits (total length 9 or 10)\", \"success\" : \"false\", \"errorCode\" : \"2000\" } }";
+                            ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                            break;
+                        }
+                        }
+                    });
+
+                if ("1234-5678-9101-1121".equals(id)) {
+                return ResponseEntity.notFound().build();
                 }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"messageHeader\" : { \"eventDateTime\" : \"2017-07-21T17:32:28Z\", \"correlationId\" : \"ABC2344BCED2234EA\", \"consumer\" : { \"code\" : \"HMCTS\", \"description\" : \"HM Courts and Tribunal Service\" } }, \"errorDetail\" : { \"messageText\" : \"Invalid reference format. Format should be either nnnn-nnnn-nnnn-nnnn or 0(0) followed by digits (total length 9 or 10)\", \"success\" : \"false\", \"errorCode\" : \"2000\" } }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
+                if ("1234-5678-9101-1122".equals(id)) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
                 }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"messageHeader\" : { \"eventDateTime\" : \"2017-07-21T17:32:28Z\", \"correlationId\" : \"ABC2344BCED2234EA\", \"consumer\" : { \"code\" : \"HMCTS\", \"description\" : \"HM Courts and Tribunal Service\" } }, \"errorDetail\" : { \"messageText\" : \"Invalid reference format. Format should be either nnnn-nnnn-nnnn-nnnn or 0(0) followed by digits (total length 9 or 10)\", \"success\" : \"false\", \"errorCode\" : \"2000\" } }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
+                if ("1234-5678-9101-1123".equals(id)) {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
                 }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"messageHeader\" : { \"eventDateTime\" : \"2017-07-21T17:32:28Z\", \"correlationId\" : \"ABC2344BCED2234EA\", \"consumer\" : { \"code\" : \"HMCTS\", \"description\" : \"HM Courts and Tribunal Service\" } }, \"errorDetail\" : { \"messageText\" : \"Invalid reference format. Format should be either nnnn-nnnn-nnnn-nnnn or 0(0) followed by digits (total length 9 or 10)\", \"success\" : \"false\", \"errorCode\" : \"2000\" } }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
+                if ("1234-5678-9101-1124".equals(id)) {
+                return ResponseEntity.notFound().build();
                 }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"messageHeader\" : { \"eventDateTime\" : \"2017-07-21T17:32:28Z\", \"correlationId\" : \"ABC2344BCED2234EA\", \"consumer\" : { \"code\" : \"HMCTS\", \"description\" : \"HM Courts and Tribunal Service\" } }, \"errorDetail\" : { \"messageText\" : \"Invalid reference format. Format should be either nnnn-nnnn-nnnn-nnnn or 0(0) followed by digits (total length 9 or 10)\", \"success\" : \"false\", \"errorCode\" : \"2000\" } }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
+                if ("1234-5678-9101-1125".equals(id)) {
+                return ResponseEntity.internalServerError().build();
                 }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"messageHeader\" : { \"eventDateTime\" : \"2017-07-21T17:32:28Z\", \"correlationId\" : \"ABC2344BCED2234EA\", \"consumer\" : { \"code\" : \"HMCTS\", \"description\" : \"HM Courts and Tribunal Service\" } }, \"errorDetail\" : { \"messageText\" : \"Invalid reference format. Format should be either nnnn-nnnn-nnnn-nnnn or 0(0) followed by digits (total length 9 or 10)\", \"success\" : \"false\", \"errorCode\" : \"2000\" } }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return ResponseEntity.ok().build();
+
+            return ResponseEntity.ok().build();
 
     }
 

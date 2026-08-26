@@ -65,11 +65,12 @@ openApiGenerate {
   apiPackage = "uk.gov.hmcts.reform.iahomeofficemockapi.generated.infrastructure.api"
   invokerPackage = "uk.gov.hmcts.reform.iahomeofficemockapi.generated.infrastructure.api.invoker"
   modelPackage = "uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities"
+  templateDir = "$projectDir/src/main/resources/openapi-generator/JavaSpring"
 
   configOptions = [
-          dateLibrary: "java8",
-          serializationLibrary: "jackson",
-          useSpringBoot3: "true"
+    dateLibrary         : "java8",
+    serializationLibrary: "jackson",
+    useSpringBoot3      : "true"
   ]
 }
 
@@ -89,38 +90,9 @@ tasks.register('copyOpenApiYaml', Copy) {
   into("$projectDir/src/main/resources/static/")
 }
 
-tasks.register('fixGeneratedControllers') {
-  doLast {
-    def targetDir = file("${project.getLayout().getBuildDirectory()}/apidocs/src/main/java/uk/gov/hmcts/reform/iahomeofficemockapi/generated/infrastructure/api")
-
-    fileTree(targetDir).matching {
-      include "**/*.java"
-    }.forEach { file ->
-
-      def original = file.getText("UTF-8")
-
-      def updated = original.replaceAll(
-        /return\s+new\s+ResponseEntity<[^>]*>\(HttpStatus\.NOT_IMPLEMENTED\);/,
-        "return ResponseEntity.ok().build();"
-      )
-
-      updated = updated.replaceAll(
-        /return\s+new\s+ResponseEntity<>\(HttpStatus\.NOT_IMPLEMENTED\);/,
-        "return ResponseEntity.ok().build();"
-      )
-
-      if (original != updated) {
-        file.write(updated, "UTF-8")
-      }
-    }
-  }
-}
-
 copyApiDocs.dependsOn copyOpenApiYaml
 copyApiDocs.dependsOn tasks.openApiGenerate
 copyOpenApiYaml.dependsOn tasks.openApiGenerate
-fixGeneratedControllers.dependsOn tasks.openApiGenerate
-copyApiDocs.dependsOn fixGeneratedControllers
 
 
 tasks.withType(JavaCompile).configureEach {
@@ -148,14 +120,14 @@ test {
   useJUnitPlatform()
   failFast = true
 
-    // Always generate JUnit XML report so Jenkins can parse it
-    reports {
-        junitXml.required.set(true)
-        html.required.set(true)
-    }
+  // Always generate JUnit XML report so Jenkins can parse it
+  reports {
+    junitXml.required.set(true)
+    html.required.set(true)
+  }
 
-    // Don’t fail the build if no tests are found
-    ignoreFailures = true
+  // Don’t fail the build if no tests are found
+  ignoreFailures = true
 }
 
 tasks.register('functional', Test) {
@@ -244,10 +216,10 @@ sonarqube {
     property "sonar.projectKey", "IAHOMEOFFICEMOCKAPI"
     property "sonar.coverage.jacoco.xmlReportPaths", layout.buildDirectory.file("reports/jacoco/test/jacocoTestReport.xml").get().asFile
     property "sonar.exclusions", "src/main/java/uk/gov/hmcts/reform/iahomeofficemockapi/infrastructure/config/**," +
-            "src/main/java/uk/gov/hmcts/reform/iahomeofficemockapi/generated/infrastructure/api/**," +
-            "src/main/java/uk/gov/hmcts/reform/iahomeofficemockapi/generated/domain/entities/**," +
-            "src/main/java/org/openapitools/configuration/**," +
-            "src/main/java/uk/gov/hmcts/reform/iahomeofficemockapi/**"
+      "src/main/java/uk/gov/hmcts/reform/iahomeofficemockapi/generated/infrastructure/api/**," +
+      "src/main/java/uk/gov/hmcts/reform/iahomeofficemockapi/generated/domain/entities/**," +
+      "src/main/java/org/openapitools/configuration/**," +
+      "src/main/java/uk/gov/hmcts/reform/iahomeofficemockapi/**"
   }
 }
 
@@ -267,7 +239,8 @@ dependencyUpdates {
 dependencyCheck {
   suppressionFile = 'config/owasp/suppressions.xml'
   configurations.collect { it.name }.findAll {
-    it.startsWith('org.openapitools.configuration') ||  it.startsWith('uk.gov.hmcts.reform.iahomeofficemockapi.generated')}
+    it.startsWith('org.openapitools.configuration') || it.startsWith('uk.gov.hmcts.reform.iahomeofficemockapi.generated')
+  }
   analyzers {
     // Disable scanning of .NET related binaries
     assemblyEnabled = false
@@ -339,7 +312,7 @@ dependencies {
 
   implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: '8.0.0'
 
-  implementation group: 'jakarta.xml.bind', name:'jakarta.xml.bind-api', version:'4.0.5'
+  implementation group: 'jakarta.xml.bind', name: 'jakarta.xml.bind-api', version: '4.0.5'
   implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
   implementation group: 'org.openapitools', name: 'jackson-databind-nullable', version: '0.2.11'
 
@@ -385,9 +358,9 @@ bootJar {
 }
 
 wrapper {
-    distributionType = Wrapper.DistributionType.ALL
+  distributionType = Wrapper.DistributionType.ALL
 }
 
 bootRun {
-    mainClass.set("uk.gov.hmcts.reform.iahomeofficemockapi.MockApiApplication")
+  mainClass.set("uk.gov.hmcts.reform.iahomeofficemockapi.MockApiApplication")
 }

@@ -24,7 +24,7 @@ import uk.gov.hmcts.reform.iahomeofficemockapi.generated.domain.entities.TokenRe
 
 import java.util.Optional;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-05-28T11:19:43.880285+01:00[Europe/London]", comments = "Generator version: 7.20.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-26T13:24:12.082923+01:00[Europe/London]", comments = "Generator version: 7.20.0")
 @Validated
 @Tag(name = "Appeals", description = "Appeals interface")
 public interface TokenApi {
@@ -68,15 +68,16 @@ public interface TokenApi {
         @Parameter(name = "scope", description = "") @Valid @RequestParam(value = "scope", required = false) String scope
     ) {
         getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"access_token\" : \"some_access_token\", \"scope\" : \"email profile\", \"token_type\" : \"bearer\", \"expires_in\" : 300 }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return ResponseEntity.ok().build();
+                        for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                        if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                            String exampleString = "{ \"access_token\" : \"some_access_token\", \"scope\" : \"email profile\", \"token_type\" : \"bearer\", \"expires_in\" : 300 }";
+                            ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                            break;
+                        }
+                        }
+                    });
+
+            return ResponseEntity.ok().build();
 
     }
 

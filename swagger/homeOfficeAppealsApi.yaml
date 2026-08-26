@@ -38,6 +38,11 @@ paths:
           description: Invalid request
   /applications/v1/{id}:
     get:
+      x-mock-400-id: "1234-5678-9101-1121"
+      x-mock-401-id: "1234-5678-9101-1122"
+      x-mock-403-id: "1234-5678-9101-1123"
+      x-mock-404-id: "1234-5678-9101-1124"
+      x-mock-500x-id: "1234-5678-9101-1125"
       summary: Gets the appellants' details of an application for immigration or asylum from the Home Office.
       description: This resource represents the people involved in an application for immigration or asylum from the Home Office.  The application number is identified by the `id` passed in, which is a UAN (16 digits in four blocks of four separated by dashes) or a GWF (beginning wth the letters **GWF** followed by nine digits).
       parameters:
@@ -446,7 +451,7 @@ components:
                           type: "string"
                     example:
                       - reason: "Application not completed properly"
-                      - reason: "You caught me on a bad day"                          
+                      - reason: "You caught me on a bad day"
                   # Array of metadata, which allows additional attributes of the application to be returned
                   metadata:
                     description: |
@@ -585,33 +590,33 @@ components:
     InstructMessage:
       description: |
         ### Message instructing Home Office about an event, or action to perform.
-        
+
         #### Mandatory items for all messages
-        
+
         messageHeader, messageType, hoReference, and consumerReference
-        
+
         #### Optional items
-        
+
         note
-        
+
         #### Message Types and Mandatory Elements
 
         APPEAL_REQUESTED: [none]
-        
+
         REQUEST_CHALLENGE_END: endReason, endChallengeDate
-        
+
         REQUEST_EVIDENCE_BUNDLE: challenge, deadlineDate
-        
+
         REQUEST_REVIEW: deadlineDate (a review has its own deadline)
-        
+
         HEARING: hearing
-        
+
         HEARING_BUNDLE_READY: hearing (passing just hmctsHearingRef and hearingType)
-        
+
         COURT_OUTCOME: courtOutcome
-        
+
         PERMISSION_TO_APPEAL: courtType
-        
+
         DEFAULT: No additional mandatory elements; generic item that is not a bundle/review request
       type: "object"
       properties:
@@ -944,7 +949,7 @@ components:
             - "1080"
             - "1090"
             - "2000"
-            - "2010"         
+            - "2010"
 externalDocs:
   description: "Find out more about Swagger"
   url: "http://swagger.io"

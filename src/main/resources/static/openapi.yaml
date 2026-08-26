@@ -124,6 +124,11 @@ paths:
           description: Internal server error
       summary: Gets the appellants' details of an application for immigration or asylum
         from the Home Office.
+      x-mock-400-id: 1234-5678-9101-1121
+      x-mock-401-id: 1234-5678-9101-1122
+      x-mock-403-id: 1234-5678-9101-1123
+      x-mock-404-id: 1234-5678-9101-1124
+      x-mock-500x-id: 1234-5678-9101-1125
       x-accepts:
       - application/json
   /applicationStatus/getBySearchParameters:
@@ -603,7 +608,7 @@ components:
         #### Message Types and Mandatory Elements
 
         APPEAL_REQUESTED: [none]
-        
+
         REQUEST_CHALLENGE_END: endReason, endChallengeDate
 
         REQUEST_EVIDENCE_BUNDLE: challenge, deadlineDate
