@@ -14,7 +14,7 @@ import java.util.Objects;
 
 @Schema(name = "SearchResponse_status_inner_applicationStatus_applicationType", description = "Type of application")
 @JsonTypeName("SearchResponse_status_inner_applicationStatus_applicationType")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-05-28T11:19:43.880285+01:00[Europe/London]", comments = "Generator version: 7.20.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-26T13:24:12.082923+01:00[Europe/London]", comments = "Generator version: 7.20.0")
 public class SearchResponseStatusInnerApplicationStatusApplicationType {
 
   private @Nullable String code;

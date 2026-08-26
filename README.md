@@ -47,6 +47,13 @@ curl -s http://localhost:8098/mappings \
              )
            | "\($pattern) -> \(.handler // "unknown")"'
 ```
+Note.
+You can mock /applications/v1/{id} error responses by using the following UAN values:
+"1234-5678-9101-1121" -> 400 response
+"1234-5678-9101-1122" -> 401 response
+"1234-5678-9101-1123" -> 403 response
+"1234-5678-9101-1124" -> 404 response
+"1234-5678-9101-1125" -> 500x response
 
 Finally - if you need to update this repo then _please please please_ do not edit the generated files.  It has taken me a week to sort out the mess left by whoever did this last time.  I have upgraded to the latest version of the Open API Generator plug-in for gradle (7.20.0 at the time of writing), so you should just need to alter `build.gradle`, `homeOfficeAppealsApi.yaml` and (very occasionally) `application.yaml` in future.  Thank you.
 NB. If you do need to edit the homeOfficeAppealsApi.yaml file, then please make sure you run the `copyApiDocs` task to copy the updated files into the correct location.
